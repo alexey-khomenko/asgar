@@ -1,0 +1,54 @@
+extends ../layout
+
+block title
+    | #{titles.contract.text}
+
+block header
+    - md_header = {mode: 'contract', console_number: 657867643543}
+    - menus.md_top.contracts.children['0']['current'] = true
+    include ../layout/header
+
+block main
+    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex-grow")
+        - console_number = 657867643543
+        - address = 'пр. Московский 172/12'
+        - debt = 320.15
+        - balance = 320.15
+        - sum = 320.15
+        - pay = '#'
+        -
+            cards = {
+                0: {
+                    title: 'Подписант договора',
+                    badge: {},
+                    text: '&hellip;'
+                },
+                1: {
+                    title: 'Доверенные лица',
+                    badge: {},
+                    text: '&hellip;'
+                },
+                2: {
+                    title: 'Оборудование в аренде',
+                    badge: {
+                        type: 'number',
+                        number: 2
+                    },
+                    text: '&hellip;'
+                },
+                3: {
+                    title: 'Статус охранной сигрализации',
+                    badge: {
+                        type: 'status',
+                        status: true,
+                        text: 'Активна'
+                    },
+                    text: '&hellip;'
+                }
+            }
+        include ../route/contract/console
+        include ../route/contract/info
+        include ../route/contract/group
+
+block footer
+    include ../layout/footer

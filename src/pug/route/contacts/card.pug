@@ -1,0 +1,16 @@
+div(class="grid gap-2 grid-cols-2 lg:grid-cols-1")
+    each card in cards
+        div(class="asgar---card")
+            div(class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2")
+                div(class="flex justify-between items-center space-x-1")
+                    div(class="flex justify-start lg:justify-between items-center flex-grow space-x-2")
+                        span(class="font-bold text-base lg:text-lg sm:text-sm text-black leading-tight")
+                            | #{card.title}
+                    button(type="button", class="flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-gray-40 focus:text-gray-40 transition duration-500 ease-in-out transform rotate-90 asgar---card-switch")
+                        svg(class="max-w-full max-h-full", xmlns="http://www.w3.org/2000/svg", width="5", height="8", viewBox="0 0 5 8")
+                            path(fill="currentColor", d="M0.0599988 7.05333L3.11333 4L0.0599994 0.94L1 -3.49691e-07L5 4L0.999999 8L0.0599988 7.05333Z")
+
+                div(class="overflow-hidden max-h-none asgar---card-text")
+                    div(class="flex justify-start items-center mt-2")
+                        span(class="text-xs md:text-base sm:text-xs leading-tight text-gray-60")
+                            | !{card.text}

@@ -1,0 +1,18 @@
+extends ../layout
+
+block title
+    | #{titles.control.text}
+
+block header
+    - md_header = {mode: 'default', text: titles.control.text, number: titles.control.number}
+    - menus.lg_bottom.control.current = true
+    include ../layout/header
+
+block main
+    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex-grow")
+        - title = titles.control
+        include ../partials/h1
+
+block footer
+    - menus.md_bottom.control.current = true
+    include ../layout/footer

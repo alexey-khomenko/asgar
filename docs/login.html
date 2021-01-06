@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
+    <link rel="manifest" href="./favicons/site.webmanifest">
+    <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#553c9a">
+    <link rel="shortcut icon" href="./favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="./favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Black.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Bold.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Hairline.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Heavy.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Light.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Medium.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Regular.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Semibold.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="./fonts/Lato-Thin.woff2">
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Авторизация
+    </title>
+  </head>
+  <body class="antialiased">
+    <div class="fixed z-0 top-0 right-0 bottom-0 left-0 overflow-y-auto overflow-x-hidden flex flex-col justify-between bg-white">
+      <header class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3">
+        <div class="mt-8 md:mt-6 sm:mt-5"></div>
+      </header>
+      <main class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3">
+        <div class="my-1"><img class="block object-contain h-24 md:h-48 sm:h-40 w-full mx-auto mb-5 md:mb-20 sm:mb-12" src="img/logo.png" alt="">
+          <h1 class="text-center font-bold text-black text-3xl leading-9 sm:text-2xl sm:leading-7 xs:text-xl mb-10 sm:mb-8">Авторизация</h1>
+          <form class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto" name="login" action="ajax.php">
+            <div class="mb-4">
+              <input class="asgar--auth-input pr-4 sm:pr-3" type="text" name="login" aria-label="Логин" placeholder="Введите логин">
+            </div>
+            <div class="mb-5">
+              <div class="relative">
+                <input class="asgar--auth-input pr-10 asgar---auth-password" type="password" name="password" aria-label="Пароль" placeholder="Введите пароль">
+                <button class="absolute top-0 right-0 bottom-0 w-8 px-1 sm:px-2 mr-2 flex justify-center items-center text-purple-80 hover:text-purple-40 focus:text-purple-40 asgar---auth-password-show" type="button">
+                  <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 576 512">
+                    <path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path>
+                  </svg>
+                </button>
+                <button class="absolute top-0 right-0 bottom-0 w-8 px-1 sm:px-2 mr-2 flex justify-center items-center text-purple-80 hover:text-purple-40 focus:text-purple-40 asgar---auth-password-hide hidden" type="button">
+                  <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 640 512">
+                    <path fill="currentColor" d="M320 400c-75.85 0-137.25-58.71-142.9-133.11L72.2 185.82c-13.79 17.3-26.48 35.59-36.72 55.59a32.35 32.35 0 0 0 0 29.19C89.71 376.41 197.07 448 320 448c26.91 0 52.87-4 77.89-10.46L346 397.39a144.13 144.13 0 0 1-26 2.61zm313.82 58.1l-110.55-85.44a331.25 331.25 0 0 0 81.25-102.07 32.35 32.35 0 0 0 0-29.19C550.29 135.59 442.93 64 320 64a308.15 308.15 0 0 0-147.32 37.7L45.46 3.37A16 16 0 0 0 23 6.18L3.37 31.45A16 16 0 0 0 6.18 53.9l588.36 454.73a16 16 0 0 0 22.46-2.81l19.64-25.27a16 16 0 0 0-2.82-22.45zm-183.72-142l-39.3-30.38A94.75 94.75 0 0 0 416 256a94.76 94.76 0 0 0-121.31-92.21A47.65 47.65 0 0 1 304 192a46.64 46.64 0 0 1-1.54 10l-73.61-56.89A142.31 142.31 0 0 1 320 112a143.92 143.92 0 0 1 144 144c0 21.63-5.29 41.79-13.9 60.11z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="flex justify-center items-center mb-12 md:mb-16 sm:mb-10"><a class="font-normal text-base sm:text-xs leading-6 md:leading-5 sm:leading-4 text-purple-80 hover:text-purple-40 focus:text-purple-40" href="reset.html">Забыл пароль</a></div>
+            <button class="flex justify-center items-center w-full bg-purple-80 hover:bg-purple-40 focus:bg-purple-40 h-12 md:h-16 sm:h-12 rounded-xl p-1 asgar---auth-submit" type="submit"><span class="font-semibold text-white text-lg sm:text-base leading-5">Войти</span></button>
+            <div class="flex justify-center items-center w-full h-12 md:h-16 sm:h-12 hidden asgar---auth-submit-spinner"><span class="animate-spin-slow">
+                <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                  <path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path>
+                </svg></span><span class="font-normal text-base sm:text-xs leading-6 md:leading-5 sm:leading-4 ml-2">Загрузка &hellip;</span></div>
+          </form>
+        </div>
+      </main>
+      <footer class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3">
+        <div class="mb-8 md:mb-6 sm:mb-5"></div>
+      </footer>
+    </div>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+h1(class="flex justify-start items-center md:hidden")
+    span(class="font-bold text-black text-2xl leading-tight")
+        | #{title.text}
+    if (title.number > 0)
+        span(class="flex text-white text-xs h-5 min-w-5 ml-2")
+            span(class="flex justify-center items-center px-1 rounded-full bg-pink flex-grow")
+                span(class="font-medium leading-tight")
+                    | #{title.number}

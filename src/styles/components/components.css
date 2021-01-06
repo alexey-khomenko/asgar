@@ -1,0 +1,23 @@
+.asgar--auth-input {
+    @apply w-full rounded-md border border-gray-40 text-base text-black font-normal h-12 pl-4;
+}
+
+.asgar--auth-input::placeholder {
+    @apply text-black opacity-100;
+}
+
+.asgar--auth-input:focus {
+    @apply border-purple-40;
+}
+
+@screen md {
+    .asgar--auth-input {
+        @apply h-16;
+    }
+}
+
+@screen sm {
+    .asgar--auth-input {
+        @apply text-xs h-12 pl-3;
+    }
+}

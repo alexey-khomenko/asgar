@@ -1,0 +1,31 @@
+div(class="bg-gray-20 md:bg-purple-80 rounded-md md:rounded-none px-3 py-4 md:pt-0 mt-2 md:mt-0 md:-mx-6 sm:-mx-5 xs:-mx-3")
+    div(class="flex flex-wrap md:flex-col justify-start 2xl:justify-between items-center")
+        div(class="flex flex-col md:flex-col-reverse md:items-center mr-32 2xl:mr-0 md:mb-5 sm:mb-4")
+            span(class="font-normal text-base sm:text-sm leading-tight text-black md:text-white mb-1 md:mb-0")
+                | #{address}
+            span(class="font-bold text-2xl sm:text-xl leading-tight text-black md:text-white mb-0 md:mb-2")
+                | #{titles.contract.text}
+
+        div(class="flex justify-start items-center space-x-16 xl:space-x-8 md:space-x-0 md:w-full md:border-t-2 md:py-2 border-purple-60")
+            div(class="flex flex-col space-y-1 md:items-center flex-grow md:p-2 md:border-r border-purple-60")
+                span(class="font-bold md:font-normal text-lg sm:text-sm leading-tight text-black md:text-white")
+                    | Баланс
+                span(class="font-bold text-2xl sm:text-xl leading-tight text-green-70 md:text-green-30")
+                    | #{balance} ₴
+
+            div(class="flex flex-col space-y-1 md:items-center flex-grow md:p-2 md:border-l border-purple-60")
+                span(class="font-bold md:font-normal text-lg sm:text-sm leading-tight text-black md:text-white")
+                    | Долг
+                span(class="font-bold text-2xl sm:text-xl leading-tight text-red-70 md:text-red-30")
+                    | #{debt} ₴
+
+        div(class="flex flex-col lg:flex-row justify-between space-y-2 lg:space-y-0 ml-auto 2xl:ml-0 lg:mt-4 md:mt-1 lg:flex-grow lg:w-full")
+            div(class="flex md:flex-col justify-start md:justify-center items-center space-x-2 md:space-x-0 sm:space-y-1 md:w-1/2 md:p-3 sm:py-2")
+                span(class="font-normal text-xs md:text-base sm:text-xs leading-tight text-gray-60 md:text-white text-center xs:-mx-2")
+                    | Рекомендуемая оплата
+                span(class="font-normal md:font-bold text-xs md:text-2xl sm:text-xl leading-tight text-red-70 md:text-white")
+                    | #{sum} ₴
+            div(class="flex justify-center items-center md:w-1/2 md:p-3 sm:py-2")
+                a(href=pay, class="flex justify-center items-center w-40 md:w-full h-8 md:h-12 sm:h-10 rounded-md text-black md:text-white hover:text-purple-40 md:hover:text-purple-20 focus::text-purple-40 md:focus:text-purple-20 bg-gray-20 md:bg-purple-80 border border-black md:border-white hover:border-purple-40 md:hover:border-purple-20 focus:border-purple-40 md:focus:border-purple-20")
+                    span(class="font-normal text-sm md:text-base sm:text-xs")
+                        | Оплатить онлайн

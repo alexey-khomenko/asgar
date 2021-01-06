@@ -1,0 +1,11 @@
+.asgar--container {
+    max-width: var(--container-width);
+}
+
+.asgar--contract-max-w {
+    max-width: var(--contract-max-w);
+}
+
+.asgar--contacts-max-w {
+    max-width: var(--contacts-max-w);
+}

@@ -1,0 +1,10 @@
+each group in groups
+    section(class="mt-8")
+        div(class="flex justify-start items-center mb-3 text-purple-80")
+            div(class="flex justify-center items-center h-4 w-4 mr-2 ml-px")
+                svg(class="max-w-full max-h-full", xmlns="http://www.w3.org/2000/svg", width="14", height="16", viewBox="0 0 14 16")
+                    path(fill="currentColor", d="M4.75 6.83594V8.33594H3.25V6.83594H4.75ZM7.75 6.83594V8.33594H6.25V6.83594H7.75ZM10.75 6.83594V8.33594H9.25V6.83594H10.75ZM12.25 1.58594C12.6478 1.58594 13.0294 1.74397 13.3107 2.02528C13.592 2.30658 13.75 2.68811 13.75 3.08594V13.5859C13.75 13.9838 13.592 14.3653 13.3107 14.6466C13.0294 14.9279 12.6478 15.0859 12.25 15.0859H1.75C0.9175 15.0859 0.25 14.4109 0.25 13.5859V3.08594C0.25 2.68811 0.408035 2.30658 0.68934 2.02528C0.970644 1.74397 1.35218 1.58594 1.75 1.58594H2.5V0.0859375H4V1.58594H10V0.0859375H11.5V1.58594H12.25ZM12.25 13.5859V5.33594H1.75V13.5859H12.25ZM4.75 9.83594V11.3359H3.25V9.83594H4.75ZM7.75 9.83594V11.3359H6.25V9.83594H7.75ZM10.75 9.83594V11.3359H9.25V9.83594H10.75Z")
+            span(class="font-normal text-base leading-none")
+                | #{group.date}
+
+        include card
