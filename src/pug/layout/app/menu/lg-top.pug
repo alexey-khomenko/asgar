@@ -1,5 +1,5 @@
-if menu.current
-    a(href="#", class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-pink cursor-default")
+if page.link === menu.link
+    span(class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-pink cursor-default")
         include link/lg-top
 else
     a(href=menu.link, class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-transparent hover:text-purple-20 focus:text-purple-20")

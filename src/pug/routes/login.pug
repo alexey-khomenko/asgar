@@ -1,38 +1,16 @@
-extends ../layout
+extends ../layouts/auth
 
-block title
-    | #{titles.login.text}
-
-block header
-    header(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3")
-        div(class="mt-8 md:mt-6 sm:mt-5")
+block data
+    -
+        page = {
+            title: {
+                text: 'Авторизация'
+            },
+            menu: {
+                link: ''
+            }
+        }
 
 block main
-    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3")
-        div(class="my-1")
-            img(src="img/logo.png", alt="", class="block object-contain h-24 md:h-48 sm:h-40 w-full mx-auto mb-5 md:mb-20 sm:mb-12")
-
-            h1(class="text-center font-bold text-black text-3xl leading-9 sm:text-2xl sm:leading-7 xs:text-xl mb-10 sm:mb-8")
-                | #{titles.login.text}
-
-            form(name="login", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto")
-                include ../partials/login
-
-                div(class="mb-5")
-                    -
-                        password = {
-                            name: 'password',
-                            label: 'Пароль',
-                            placeholder: 'Введите пароль',
-                            desc: ''
-                        }
-                    include ../partials/password
-
-                include ../route/login/forgot
-
-                - submit = 'Войти';
-                include ../partials/submit
-
-block footer
-    footer(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3")
-        div(class="mb-8 md:mb-6 sm:mb-5")
+    include ../route/login/info
+    include ../route/login/form

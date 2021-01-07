@@ -7,12 +7,7 @@ div(class="flex justify-between items-center bg-gray-20 md:bg-purple-80 rounded-
             | #{sum} ₴
 
     div(class="flex xl:flex-col justify-start items-center space-x-3 xl:space-x-0 xl:space-y-3 md:hidden")
-        a(href=pay, class="flex justify-center items-center w-40 h-12 rounded-lg text-white bg-purple-80 hover:bg-purple-40 focus:bg-purple-40")
-            span(class="font-medium text-sm")
-                | Оплатить онлайн
-        a(href=account, class="flex justify-center items-center w-40 h-12 rounded-lg text-purple-80 hover:text-purple-40 focus::text-purple-40 bg-gray-20 border border-purple-80 hover:border-purple-40 focus:border-purple-40")
-            span(class="font-medium text-sm")
-                | Выставить счет
+        include buttons
 
     a(href="profile.html", class="flex justify-start items-center space-x-3 group md:hidden")
         span(class="flex justify-center items-center w-16 h-16 rounded-full text-white bg-purple-80 group-hover:bg-purple-40")

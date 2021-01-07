@@ -1,16 +1,17 @@
-extends ../layout
+extends ../layouts/app
 
-block title
-    | #{titles.profile.text}
-
-block header
-    - md_header = {mode: 'default', text: titles.profile.text, number: titles.profile.number}
-    include ../layout/header
+block data
+    -
+        page = {
+            title: {
+                text: 'Профиль',
+                number: 0
+            },
+            menu: {
+                mode: 'default'
+            },
+            link: 'profile.html'
+        }
 
 block main
-    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex-grow")
-        - title = titles.profile
-        include ../partials/h1
-
-block footer
-    include ../layout/footer
+    include ../partials/routes/h1

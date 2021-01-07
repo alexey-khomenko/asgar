@@ -730,7 +730,7 @@ button::-moz-focus-inner {
   width: 100%;
 }
 
-.asgar--auth-input {
+[data-c-auth-input] {
   width: 100%;
   border-radius: 0.375rem;
   border-width: 1px;
@@ -746,27 +746,27 @@ button::-moz-focus-inner {
   padding-left: 1rem;
 }
 
-.asgar--auth-input::placeholder {
+[data-c-auth-input]::placeholder {
   --text-opacity: 1;
   color: #000000;
   color: rgba(0, 0, 0, var(--text-opacity));
   opacity: 1;
 }
 
-.asgar--auth-input:focus {
+[data-c-auth-input]:focus {
   --border-opacity: 1;
   border-color: #8b64c4;
   border-color: rgba(139, 100, 196, var(--border-opacity));
 }
 
 @media (max-width: 639px) {
-  .asgar--auth-input {
+  [data-c-auth-input] {
     height: 4rem;
   }
 }
 
 @media (max-width: 479px) {
-  .asgar--auth-input {
+  [data-c-auth-input] {
     font-size: 0.75rem;
     height: 3rem;
     padding-left: 0.75rem;
@@ -10710,15 +10710,15 @@ button::-moz-focus-inner {
   animation: spin 2s linear infinite;
 }
 
-.asgar--container {
+[data-c-container] {
   max-width: var(--container-width);
 }
 
-.asgar--contract-max-w {
+[data-c-contract-max-w] {
   max-width: var(--contract-max-w);
 }
 
-.asgar--contacts-max-w {
+[data-c-contacts-max-w] {
   max-width: var(--contacts-max-w);
 }
 

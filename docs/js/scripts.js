@@ -14,50 +14,50 @@ document.addEventListener("change", removeError);
 //----------------------------------------------------------------------------------------------------------------------
 // показать пароль по кнопке
 document.addEventListener("click", function (e) {
-    const pwd_show = "asgar---auth-password-show", pwd_hide = "asgar---auth-password-hide";
+    const pwd_show = "[data-s-auth-password-show]", pwd_hide = "[data-s-auth-password-hide]";
 
-    if (!e.target.classList.contains(pwd_show) && !e.target.closest("." + pwd_show)) return true;
+    if (!e.target.dataset.sAuthPasswordShow && !e.target.closest(pwd_show)) return true;
 
     e.preventDefault();
-    document.querySelectorAll("." + pwd_show).forEach(function (element) {
+    document.querySelectorAll(pwd_show).forEach(function (element) {
         element.classList.add("hidden");
     });
-    document.querySelectorAll("." + pwd_hide).forEach(function (element) {
+    document.querySelectorAll(pwd_hide).forEach(function (element) {
         element.classList.remove("hidden");
     });
-    document.querySelectorAll(".asgar---auth-password").forEach(function (element) {
+    document.querySelectorAll("[data-s-auth-password]").forEach(function (element) {
         element.type = "text";
     });
 });
 //----------------------------------------------------------------------------------------------------------------------
 // скрыть пароль по кнопке
 document.addEventListener("click", function (e) {
-    const pwd_show = "asgar---auth-password-show", pwd_hide = "asgar---auth-password-hide";
+    const pwd_show = "[data-s-auth-password-show]", pwd_hide = "[data-s-auth-password-hide]";
 
-    if (!e.target.classList.contains(pwd_hide) && !e.target.closest("." + pwd_hide)) return true;
+    if (!e.target.dataset.sAuthPasswordHide && !e.target.closest(pwd_hide)) return true;
 
     e.preventDefault();
-    document.querySelectorAll("." + pwd_hide).forEach(function (element) {
+    document.querySelectorAll(pwd_hide).forEach(function (element) {
         element.classList.add("hidden");
     });
-    document.querySelectorAll("." + pwd_show).forEach(function (element) {
+    document.querySelectorAll(pwd_show).forEach(function (element) {
         element.classList.remove("hidden");
     });
-    document.querySelectorAll(".asgar---auth-password").forEach(function (element) {
+    document.querySelectorAll("[data-s-auth-password]").forEach(function (element) {
         element.type = "password";
     });
 });
 //----------------------------------------------------------------------------------------------------------------------
 // переключение карточки
 document.addEventListener("click", function (e) {
-    const switch_class = "asgar---card-switch";
+    const switch_selector = "[data-s-card-switch]";
 
-    if (!e.target.classList.contains(switch_class) && !e.target.closest("." + switch_class)) return true;
+    if (!e.target.dataset.sCardSwitch && !e.target.closest(switch_selector)) return true;
 
     const
-        button = e.target.classList.contains(switch_class) ? e.target : e.target.closest("." + switch_class),
-        wrap = button.closest(".asgar---card"),
-        text = wrap.querySelector(".asgar---card-text")
+        button = e.target.dataset.sCardSwitch ? e.target : e.target.closest(switch_selector),
+        wrap = button.closest("[data-s-card]"),
+        text = wrap.querySelector("[data-s-card-text]")
     ;
 
     if (button.classList.contains("rotate-90")) {
@@ -88,8 +88,8 @@ document.addEventListener("submit", function (e) {
     e.preventDefault();
     let errors = false;
     const
-        submit = e.target.querySelector(".asgar---auth-submit"),
-        spinner = e.target.querySelector(".asgar---auth-submit-spinner"),
+        submit = e.target.querySelector("[data-s-auth-submit]"),
+        spinner = e.target.querySelector("[data-s-auth-submit-spinner]"),
         action = e.target.action,
         login = e.target.elements.login,
         login_val = login.value.trim(),
@@ -143,14 +143,14 @@ document.addEventListener("submit", function (e) {
 //----------------------------------------------------------------------------------------------------------------------
 // переключение подменю в мобильном меню
 document.addEventListener("click", function (e) {
-    const switch_class = "asgar---header-submenu-switch";
+    const switch_selector = "[data-s-header-submenu-switch]";
 
-    if (!e.target.classList.contains(switch_class) && !e.target.closest("." + switch_class)) return true;
+    if (!e.target.dataset.sHeaderSubmenuSwitch && !e.target.closest(switch_selector)) return true;
 
     const
-        button = e.target.classList.contains(switch_class) ? e.target : e.target.closest("." + switch_class),
-        wrap = button.closest(".asgar---header-submenu-wrap"),
-        group = wrap.querySelector(".asgar---header-submenu-group")
+        button = e.target.dataset.sHeaderSubmenuSwitch ? e.target : e.target.closest(switch_selector),
+        wrap = button.closest("[data-s-header-submenu-wrap]"),
+        group = wrap.querySelector("[data-s-header-submenu-group]")
     ;
 
     if (button.classList.contains("rotate-90")) {
@@ -178,11 +178,11 @@ document.addEventListener("click", function (e) {
 //----------------------------------------------------------------------------------------------------------------------
 // клик за пределами мобильного меню
 document.addEventListener("click", function (e) {
-    const menu_class = "asgar---header-menu";
+    const menu_selector = "[data-s-header-menu]";
 
-    if (e.target.classList.contains(menu_class) || e.target.closest("." + menu_class)) return true;
+    if (e.target.dataset.sHeaderMenu || e.target.closest(menu_selector)) return true;
 
-    const menu = document.querySelector("." + menu_class);
+    const menu = document.querySelector(menu_selector);
     menu.classList.remove("translate-x-0");
     menu.classList.remove("shadow-2xl");
     menu.classList.add("-translate-x-full");
@@ -191,12 +191,12 @@ document.addEventListener("click", function (e) {
 //----------------------------------------------------------------------------------------------------------------------
 // открыть мобильное меню по кнопке
 document.addEventListener("click", function (e) {
-    const button = "asgar---header-menu-show";
+    const button_selector = "[data-s-header-menu-show]";
 
-    if (!e.target.classList.contains(button) && !e.target.closest("." + button)) return true;
+    if (!e.target.dataset.sHeaderMenuShow && !e.target.closest(button_selector)) return true;
 
     e.preventDefault();
-    const menu = document.querySelector(".asgar---header-menu");
+    const menu = document.querySelector("[data-s-header-menu]");
     menu.classList.remove("-translate-x-full");
     menu.classList.remove("shadow-none");
     menu.classList.add("translate-x-0");
@@ -205,12 +205,12 @@ document.addEventListener("click", function (e) {
 //----------------------------------------------------------------------------------------------------------------------
 // закрыть мобильное меню по кнопке
 document.addEventListener("click", function (e) {
-    const button = "asgar---header-menu-hide";
+    const button_selector = "[data-s-header-menu-hide]";
 
-    if (!e.target.classList.contains(button) && !e.target.closest("." + button)) return true;
+    if (!e.target.dataset.sHeaderMenuHide && !e.target.closest(button_selector)) return true;
 
     e.preventDefault();
-    const menu = document.querySelector(".asgar---header-menu");
+    const menu = document.querySelector("[data-s-header-menu]");
     menu.classList.remove("translate-x-0");
     menu.classList.remove("shadow-2xl");
     menu.classList.add("-translate-x-full");
@@ -224,8 +224,8 @@ document.addEventListener("submit", function (e) {
     e.preventDefault();
     let errors = false;
     const
-        submit = e.target.querySelector(".asgar---auth-submit"),
-        spinner = e.target.querySelector(".asgar---auth-submit-spinner"),
+        submit = e.target.querySelector("[data-s-auth-submit]"),
+        spinner = e.target.querySelector("[data-s-auth-submit-spinner]"),
         action = e.target.action,
         login = e.target.elements.login,
         login_val = login.value.trim(),

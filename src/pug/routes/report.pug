@@ -1,18 +1,17 @@
-extends ../layout
+extends ../layouts/app
 
-block title
-    | #{titles.report.text}
-
-block header
-    - md_header = {mode: 'default', text: titles.report.text, number: titles.report.number}
-    - menus.lg_bottom.report.current = true
-    include ../layout/header
+block data
+    -
+        page = {
+            title: {
+                text: 'Отчёт',
+                number: 0
+            },
+            menu: {
+                mode: 'default'
+            },
+            link: 'report.html'
+        }
 
 block main
-    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex-grow")
-        - title = titles.report
-        include ../partials/h1
-
-block footer
-    - menus.md_bottom.report.current = true
-    include ../layout/footer
+    include ../partials/routes/h1

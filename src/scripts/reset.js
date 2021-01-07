@@ -6,8 +6,8 @@ document.addEventListener("submit", function (e) {
     e.preventDefault();
     let errors = false;
     const
-        submit = e.target.querySelector(".asgar---auth-submit"),
-        spinner = e.target.querySelector(".asgar---auth-submit-spinner"),
+        submit = e.target.querySelector("[data-s-auth-submit]"),
+        spinner = e.target.querySelector("[data-s-auth-submit-spinner]"),
         action = e.target.action,
         login = e.target.elements.login,
         login_val = login.value.trim(),

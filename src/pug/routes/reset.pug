@@ -1,53 +1,16 @@
-extends ../layout
+extends ../layouts/auth
 
-block title
-    | #{titles.reset.text}
-
-block header
-    header(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3")
-        div(class="mt-8 md:mt-6 sm:mt-5")
-            - var link = 'login.html';
-            include ../route/reset/back
+block data
+    -
+        page = {
+            title: {
+                text: 'Восстановление пароля'
+            },
+            menu: {
+                link: 'login.html'
+            }
+        }
 
 block main
-    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3")
-        div(class="my-1")
-            h1(class="text-center font-bold text-black text-3xl leading-9 sm:text-2xl sm:leading-7 xs:text-xl md:text-left mb-2 md:mb-4")
-                | Восстановление пароля
-
-            div(class="max-w-xs md:max-w-full mx-auto md:mx-px mb-10 md:mb-12 sm:mb-10")
-
-                p(class="text-center md:text-left font-medium text-gray-60 text-sm md:text-base sm:text-sm leading-5 md:leading-7 sm:leading-5 -mx-2 md:mx-0")
-                    | Для восстановления вашего пароля необходимо ввести свой логин, далее создайте новый пароль,
-                    | который не будет повторять предыдущий
-
-            form(name="reset", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto")
-                include ../partials/login
-
-                div(class="mb-4")
-                    -
-                        password = {
-                            name: 'password-new',
-                            label: 'Новый пароль',
-                            placeholder: 'Введите новый пароль',
-                            desc: 'Пароль должен быть не менее 8 символов'
-                        }
-                    include ../partials/password
-
-                div(class="mb-8 md:mb-12 sm:mb-10")
-                    -
-                        password = {
-                            name: 'password-confirm',
-                            label: 'Повторите пароль',
-                            placeholder: 'Повторите новый пароль',
-                            desc: 'Оба пароля должны совпадать'
-                        }
-                    include ../partials/password
-
-                - submit = 'Восстановить пароль';
-                include ../partials/submit
-
-block footer
-    footer(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3")
-        div(class="mb-8 md:mb-6 sm:mb-5")
-            div(class="h-8")
+    include ../route/reset/info
+    include ../route/reset/form

@@ -1,50 +1,49 @@
-extends ../layout
+extends ../layouts/app
 
-block title
-    | #{titles.contacts.text}
-
-block header
-    - md_header = {mode: 'default', text: titles.contacts.text, number: titles.contacts.number}
-    - menus.lg_top.left.contacts.current = true
-    - menus.md_top.contacts.current = true
-    include ../layout/header
+block data
+    -
+        page = {
+            title: {
+                text: 'Контакты',
+                number: 0
+            },
+            menu: {
+                mode: 'default'
+            },
+            link: 'contacts.html'
+        }
 
 block main
-    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex-grow")
-        - title = titles.contacts
-        include ../partials/h1
-        -
-            cards = {
-                0: {
-                    title: 'Заказать выезд технического специалиста',
-                    text: '&hellip;'
-                },
-                1: {
-                    title: 'Связаться с пультом охраны',
-                    text: '&hellip;'
-                },
-                2: {
-                    title: 'Связаться с юридическим отделом',
-                    text: '&hellip;'
-                },
-                3: {
-                    title: 'Связаться с финансовым отделом',
-                    text: '&hellip;'
-                },
-                4: {
-                    title: 'Заказать новое подключение',
-                    text: '&hellip;'
-                },
-                5: {
-                    title: 'Заказать дооборудование системы',
-                    text: '&hellip;'
-                },
-                6: {
-                    title: 'Техническая поддержка',
-                    text: '&hellip;'
-                }
+    include ../partials/routes/h1
+    -
+        cards = {
+            0: {
+                title: 'Заказать выезд технического специалиста',
+                text: '&hellip;'
+            },
+            1: {
+                title: 'Связаться с пультом охраны',
+                text: '&hellip;'
+            },
+            2: {
+                title: 'Связаться с юридическим отделом',
+                text: '&hellip;'
+            },
+            3: {
+                title: 'Связаться с финансовым отделом',
+                text: '&hellip;'
+            },
+            4: {
+                title: 'Заказать новое подключение',
+                text: '&hellip;'
+            },
+            5: {
+                title: 'Заказать дооборудование системы',
+                text: '&hellip;'
+            },
+            6: {
+                title: 'Техническая поддержка',
+                text: '&hellip;'
             }
-        include ../route/contacts/group
-
-block footer
-    include ../layout/footer
+        }
+    include ../route/contacts/group

@@ -1,18 +1,17 @@
-extends ../layout
+extends ../layouts/app
 
-block title
-    | #{titles.settings.text}
-
-block header
-    - md_header = {mode: 'default', text: titles.settings.text, number: titles.settings.number}
-    - menus.lg_top.left.settings.current = true
-    - menus.md_top.settings.current = true
-    include ../layout/header
+block data
+    -
+        page = {
+            title: {
+                text: 'Настройки',
+                number: 0
+            },
+            menu: {
+                mode: 'default'
+            },
+            link: 'settings.html'
+        }
 
 block main
-    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex-grow")
-        - title = titles.settings
-        include ../partials/h1
-
-block footer
-    include ../layout/footer
+    include ../partials/routes/h1

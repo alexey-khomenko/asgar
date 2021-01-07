@@ -1,0 +1,17 @@
+form(name="login", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto")
+    include ../../partials/routes/login
+
+    div(class="mb-5")
+        -
+            password = {
+                name: 'password',
+                label: 'Пароль',
+                placeholder: 'Введите пароль',
+                desc: ''
+            }
+        include ../../partials/routes/password
+
+    include ../../route/login/forgot
+
+    - submit = 'Войти';
+    include ../../partials/routes/submit

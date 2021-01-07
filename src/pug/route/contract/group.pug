@@ -1,2 +1,4 @@
-section(class="mt-8 md:mt-6 sm:mt-5 asgar--contract-max-w")
-    include card
+section(class="mt-8 md:mt-6 sm:mt-5", data-c-contract-max-w)
+    div(class="grid gap-2 grid-cols-2 lg:grid-cols-1")
+        each card in cards
+            include card

@@ -1,68 +1,67 @@
-extends ../layout
+extends ../layouts/app
 
-block title
-    | #{titles.events.text}
-
-block header
-    - md_header = {mode: 'default', text: titles.events.text, number: titles.events.number}
-    - menus.lg_bottom.events.current = true
-    include ../layout/header
+block data
+    -
+        page = {
+            title: {
+                text: 'События',
+                number: 2
+            },
+            menu: {
+                mode: 'default'
+            },
+            link: 'events.html'
+        }
 
 block main
-    main(class="asgar--container w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex-grow")
-        - title = titles.events
-        include ../partials/h1
-        -
-            groups = {
-                0: {
-                    date: 'Сегодня',
-                    cards: {
-                        0: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        },
-                        1: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        },
-                        2: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        },
-                        3: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        },
-                        4: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        }
+    include ../partials/routes/h1
+    -
+        groups = {
+            0: {
+                date: 'Сегодня',
+                cards: {
+                    0: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
+                    },
+                    1: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
+                    },
+                    2: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
+                    },
+                    3: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
+                    },
+                    4: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
                     }
-                },
-                1: {
-                    date: '12.12.2020',
-                    cards: {
-                        0: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        },
-                        1: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        },
-                        2: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        },
-                        3: {
-                            time: '17.00',
-                            text: 'Приезд и штатная проверка'
-                        }
+                }
+            },
+            1: {
+                date: '12.12.2020',
+                cards: {
+                    0: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
+                    },
+                    1: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
+                    },
+                    2: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
+                    },
+                    3: {
+                        time: '17.00',
+                        text: 'Приезд и штатная проверка'
                     }
                 }
             }
-        include ../route/events/group
-
-block footer
-    - menus.md_bottom.events.current = true
-    include ../layout/footer
+        }
+    include ../route/events/group

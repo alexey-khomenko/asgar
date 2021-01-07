@@ -1,14 +1,14 @@
 //----------------------------------------------------------------------------------------------------------------------
 // переключение подменю в мобильном меню
 document.addEventListener("click", function (e) {
-    const switch_class = "asgar---header-submenu-switch";
+    const switch_selector = "[data-s-header-submenu-switch]";
 
-    if (!e.target.classList.contains(switch_class) && !e.target.closest("." + switch_class)) return true;
+    if (!e.target.dataset.sHeaderSubmenuSwitch && !e.target.closest(switch_selector)) return true;
 
     const
-        button = e.target.classList.contains(switch_class) ? e.target : e.target.closest("." + switch_class),
-        wrap = button.closest(".asgar---header-submenu-wrap"),
-        group = wrap.querySelector(".asgar---header-submenu-group")
+        button = e.target.dataset.sHeaderSubmenuSwitch ? e.target : e.target.closest(switch_selector),
+        wrap = button.closest("[data-s-header-submenu-wrap]"),
+        group = wrap.querySelector("[data-s-header-submenu-group]")
     ;
 
     if (button.classList.contains("rotate-90")) {
@@ -36,11 +36,11 @@ document.addEventListener("click", function (e) {
 //----------------------------------------------------------------------------------------------------------------------
 // клик за пределами мобильного меню
 document.addEventListener("click", function (e) {
-    const menu_class = "asgar---header-menu";
+    const menu_selector = "[data-s-header-menu]";
 
-    if (e.target.classList.contains(menu_class) || e.target.closest("." + menu_class)) return true;
+    if (e.target.dataset.sHeaderMenu || e.target.closest(menu_selector)) return true;
 
-    const menu = document.querySelector("." + menu_class);
+    const menu = document.querySelector(menu_selector);
     menu.classList.remove("translate-x-0");
     menu.classList.remove("shadow-2xl");
     menu.classList.add("-translate-x-full");
@@ -49,12 +49,12 @@ document.addEventListener("click", function (e) {
 //----------------------------------------------------------------------------------------------------------------------
 // открыть мобильное меню по кнопке
 document.addEventListener("click", function (e) {
-    const button = "asgar---header-menu-show";
+    const button_selector = "[data-s-header-menu-show]";
 
-    if (!e.target.classList.contains(button) && !e.target.closest("." + button)) return true;
+    if (!e.target.dataset.sHeaderMenuShow && !e.target.closest(button_selector)) return true;
 
     e.preventDefault();
-    const menu = document.querySelector(".asgar---header-menu");
+    const menu = document.querySelector("[data-s-header-menu]");
     menu.classList.remove("-translate-x-full");
     menu.classList.remove("shadow-none");
     menu.classList.add("translate-x-0");
@@ -63,12 +63,12 @@ document.addEventListener("click", function (e) {
 //----------------------------------------------------------------------------------------------------------------------
 // закрыть мобильное меню по кнопке
 document.addEventListener("click", function (e) {
-    const button = "asgar---header-menu-hide";
+    const button_selector = "[data-s-header-menu-hide]";
 
-    if (!e.target.classList.contains(button) && !e.target.closest("." + button)) return true;
+    if (!e.target.dataset.sHeaderMenuHide && !e.target.closest(button_selector)) return true;
 
     e.preventDefault();
-    const menu = document.querySelector(".asgar---header-menu");
+    const menu = document.querySelector("[data-s-header-menu]");
     menu.classList.remove("translate-x-0");
     menu.classList.remove("shadow-2xl");
     menu.classList.add("-translate-x-full");

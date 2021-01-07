@@ -1,6 +1,6 @@
 div(class="flex flex-col justify-center items-center")
-    if menu.current
-        a(href="#", class="text-center cursor-default text-purple-80")
+    if page.link === menu.link
+        span(class="text-center text-purple-80 cursor-default")
             include link/md-bottom
     else
         a(href=menu.link, class="text-center text-purple-20 hover:text-purple-40 focus:text-purple-40")
