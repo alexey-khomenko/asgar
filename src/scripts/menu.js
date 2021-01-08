@@ -41,6 +41,8 @@ document.addEventListener("click", function (e) {
     if (e.target.dataset.sHeaderMenu || e.target.closest(menu_selector)) return true;
 
     const menu = document.querySelector(menu_selector);
+
+    if (!menu) return true;
     menu.classList.remove("translate-x-0");
     menu.classList.remove("shadow-2xl");
     menu.classList.add("-translate-x-full");

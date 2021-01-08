@@ -21,3 +21,18 @@
         @apply text-xs h-12 pl-3;
     }
 }
+
+
+[data-c-auth-pwd-btn] {
+    @apply absolute top-0 right-0 bottom-0 flex justify-center items-center w-8 px-1 mr-2 text-purple-80;
+}
+
+[data-c-auth-pwd-btn]:hover, [data-c-auth-pwd-btn]:focus {
+    @apply text-purple-40;
+}
+
+@screen sm {
+    [data-c-auth-pwd-btn] {
+        @apply px-2;
+    }
+}

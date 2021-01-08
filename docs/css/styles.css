@@ -773,6 +773,36 @@ button::-moz-focus-inner {
   }
 }
 
+[data-c-auth-pwd-btn] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  margin-right: 0.5rem;
+  --text-opacity: 1;
+  color: #54308a;
+  color: rgba(84, 48, 138, var(--text-opacity));
+}
+
+[data-c-auth-pwd-btn]:hover, [data-c-auth-pwd-btn]:focus {
+  --text-opacity: 1;
+  color: #8b64c4;
+  color: rgba(139, 100, 196, var(--text-opacity));
+}
+
+@media (max-width: 479px) {
+  [data-c-auth-pwd-btn] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
 .space-y-0 > :not(template) ~ :not(template) {
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
