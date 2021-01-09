@@ -1,4 +1,4 @@
-header
+header(x-data="{show_menu: false}")
     -
         lg_top = {
             left: {
@@ -45,7 +45,7 @@ header
                         width: '12',
                         height: '12'
                     }
-                },
+                }
             },
             right: {
                 login: {
@@ -58,8 +58,8 @@ header
                         width: '12',
                         height: '12'
                     }
-                },
-            },
+                }
+            }
         }
     div(class="bg-purple-80 md:hidden")
         div(class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex justify-between", data-c-container)
@@ -125,6 +125,20 @@ header
             div(class="flex justify-start items-center space-x-5")
                 each menu in lg_bottom
                     include menu/lg-bottom
+    //- гамбургер
+    div(class="bg-purple-80 hidden md:block px-6 sm:px-5 xs:px-3")
+        div(class="flex justify-between items-center h-24 sm:h-16 py-2")
+            - cls = 'flex justify-center items-center p-1 h-8 sm:h-6 w-8 sm:w-6 text-white hover:text-purple-20 focus:text-purple-20'
+            button(type="button", class=cls, @click.stop="show_menu = true")
+                - svg = {width: 25, height: 16, name: 'hamburger'}
+                include ../../partials/routes/svg
+            case page.menu.mode
+                when 'contracts'
+                    include md-header/contracts
+                when 'contract'
+                    include md-header/contract
+                default
+                    include md-header/default
     -
         md_top = {
             index: {
@@ -197,24 +211,13 @@ header
                 children: {}
             }
         }
-    div(class="bg-purple-80 hidden md:block fixed z-10 top-0 bottom-0 left-0 w-3/4 overflow-y-auto overflow-x-hidden transition duration-500 ease-in-out transform -translate-x-full shadow-none", data-s-header-menu)
+    - cls = 'bg-purple-80 hidden md:block fixed z-10 top-0 bottom-0 left-0 w-3/4 overflow-y-auto overflow-x-hidden transition duration-500 ease-in-out transform'
+    div(class=cls, :class="{'translate-x-0 shadow-2xl': show_menu, '-translate-x-full shadow-none': !show_menu}", @click.away="show_menu = false", x-cloak)
         div(class="px-3")
             div(class="flex justify-end items-center h-16 sm:h-12 mb-1")
-                button(type="button", class="flex justify-center items-center p-1 h-8 sm:h-6 w-8 sm:w-6 text-white hover:text-purple-20 focus:text-purple-20", data-s-header-menu-hide)
-                    svg(class="max-w-full max-h-full", xmlns="http://www.w3.org/2000/svg", width="20", height="20", viewBox="0 0 20 20")
-                        path(fill="currentColor", d="M19.4139 2.59778L17.53 0.713867L10.0612 8.18273L2.59229 0.713867L0.708374 2.59778L8.17724 10.0666L0.708374 17.5355L2.59229 19.4194L10.0612 11.9506L17.53 19.4194L19.4139 17.5355L11.9451 10.0666L19.4139 2.59778Z")
+                - cls = 'flex justify-center items-center p-1 h-8 sm:h-6 w-8 sm:w-6 text-white hover:text-purple-20 focus:text-purple-20'
+                button(type="button", class=cls, @click="show_menu = false")
+                    - svg = {width: 20, height: 20, name: 'cross'}
+                    include ../../partials/routes/svg
             each menu in md_top
                 include menu/md-top
-    //- гамбургер
-    div(class="bg-purple-80 hidden md:block px-6 sm:px-5 xs:px-3")
-        div(class="flex justify-between items-center h-24 sm:h-16 py-2")
-            button(type="button", class="flex justify-center items-center p-1 h-8 sm:h-6 w-8 sm:w-6 text-white hover:text-purple-20 focus:text-purple-20", data-s-header-menu-show)
-                svg(class="max-w-full max-h-full", xmlns="http://www.w3.org/2000/svg", width="25", height="16", viewBox="0 0 25 16")
-                    path(fill="currentColor", d="M0.722229 0H24.7222V2.66667H0.722229V0ZM0.722229 6.66667H24.7222V9.33333H0.722229V6.66667ZM0.722229 13.3333H24.7222V16H0.722229V13.3333Z")
-            case page.menu.mode
-                when 'contracts'
-                    include md-header/contracts
-                when 'contract'
-                    include md-header/contract
-                default
-                    include md-header/default

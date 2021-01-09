@@ -1,6 +1,6 @@
 a(href=page.menu.link, class="inline-flex justify-start items-center text-black hover:text-purple-40 focus:text-purple-40")
     span(class="w-8 h-8 flex justify-center items-center")
-        svg(class="max-w-full max-h-full", xmlns="http://www.w3.org/2000/svg", width="11", height="16", viewBox="0 0 11 16")
-            path(fill="currentColor", d="M10.5465 14.1067L4.43984 8L10.5465 1.88L8.6665 0L0.666504 8L8.6665 16L10.5465 14.1067Z")
+        - svg = {width: 11, height: 16, name: 'back'}
+        include ../../partials/routes/svg
     span(class="text-lg sm:text-base leading-5 mx-1")
         | Назад

@@ -4,6 +4,7 @@ html(lang="ru")
     head
         meta(charset="utf-8")
         meta(name="viewport", content="initial-scale=1.0, width=device-width")
+        link(href="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js", rel="preload", as="script")
         link(href="js/scripts.js", rel="preload", as="script")
         include ../partials/layouts/favicons
         include ../partials/layouts/fonts
@@ -18,4 +19,5 @@ html(lang="ru")
                 block main
 
             include ../layout/app/footer
+        script(src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js", defer='defer')
         script(src="js/scripts.js", defer='defer')
