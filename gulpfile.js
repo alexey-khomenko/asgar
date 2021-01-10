@@ -6,7 +6,7 @@ const cssimport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const tailwindcss = require('tailwindcss');
 const cssnano = require('cssnano');
-const uglify = require("gulp-uglify");
+const minify = require("gulp-minify");
 const concat = require("gulp-concat");
 const pug = require('gulp-pug');
 
@@ -50,6 +50,23 @@ function stylesProd() {
         ;
 }
 
+function alpineDev() {
+    return src('node_modules/alpinejs/dist/alpine.js')
+        .pipe(dest(JS_OUTPUT))
+        ;
+}
+
+function alpineProd() {
+    return src('node_modules/alpinejs/dist/alpine.js')
+        .pipe(minify({
+            ext: {
+                min: '.min.js'
+            }
+        }))
+        .pipe(dest(JS_OUTPUT))
+        ;
+}
+
 function scriptsDev() {
     return src(JS_ENTRY)
         .pipe(concat('scripts.js'))
@@ -61,7 +78,11 @@ function scriptsDev() {
 function scriptsProd() {
     return src(JS_ENTRY)
         .pipe(concat('scripts.js'))
-        .pipe(uglify())
+        .pipe(minify({
+            ext: {
+                min: '.min.js'
+            }
+        }))
         .pipe(dest(JS_OUTPUT))
         ;
 }
@@ -115,8 +136,8 @@ function watcher() {
     watch(JS_FILES, scriptsDev);
 }
 
-const dev = series(clear, parallel(stylesDev, scriptsDev, html, icons, img, fonts));
-const build = series(clear, parallel(stylesProd, scriptsProd, html, icons, img, fonts));
+const dev = series(clear, alpineDev, parallel(stylesDev, scriptsDev, html, icons, img, fonts));
+const build = series(clear, alpineProd, parallel(stylesProd, scriptsProd, html, icons, img, fonts));
 
 exports.default = build;
 exports.dev = series(dev, watcher);
