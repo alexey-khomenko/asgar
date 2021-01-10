@@ -730,6 +730,10 @@ button::-moz-focus-inner {
   width: 100%;
 }
 
+.placeholder-opacity-100::placeholder {
+  opacity: 1;
+}
+
 .space-y-0 > :not(template) ~ :not(template) {
   --space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -10680,7 +10684,7 @@ button::-moz-focus-inner {
 }
 
 [x-cloak] {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 1199px) {
