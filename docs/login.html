@@ -36,11 +36,11 @@
         <h1 class="text-center font-bold text-black text-3xl leading-9 sm:text-2xl sm:leading-7 xs:text-xl mb-10 sm:mb-8">Авторизация</h1>
         <form class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto" name="login" action="ajax.php" x-data="{show: false}">
           <div class="mb-4">
-            <input class="pr-4 sm:pr-3 w-full rounded-md border border-gray-40 text-base text-black font-normal h-12 pl-4 placeholder:text-black placeholder:opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" type="text" name="login" aria-label="Логин" placeholder="Введите логин">
+            <input class="pr-4 sm:pr-3 w-full rounded-md border border-gray-40 text-base text-black font-normal h-12 pl-4 placeholder-black placeholder-opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" type="text" name="login" aria-label="Логин" placeholder="Введите логин">
           </div>
           <div class="mb-5">
             <div class="relative">
-              <input class="pr-10 w-full rounded-md border border-gray-40 text-base text-black font-normal h-12 pl-4 placeholder:text-black placeholder:opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" name="password" aria-label="Пароль" placeholder="Введите пароль" :type="show ? 'text' : 'password'">
+              <input class="pr-10 w-full rounded-md border border-gray-40 text-base text-black font-normal h-12 pl-4 placeholder-black placeholder-opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" name="password" aria-label="Пароль" placeholder="Введите пароль" :type="show ? 'text' : 'password'">
               <button class="absolute top-0 right-0 bottom-0 flex justify-center items-center w-8 px-1 mr-2 text-purple-80 hover:text-purple-40 focus:text-purple-40 sm:px-2" type="button" aria-label="Показать пароль" :class="{hidden: show}" @click="show = true">
                 <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 576 512">
                   <path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path>
