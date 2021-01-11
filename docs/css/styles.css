@@ -5458,6 +5458,10 @@ button::-moz-focus-inner {
   max-height: 0;
 }
 
+.max-h-auto {
+  max-height: max-content;
+}
+
 .max-w-none {
   max-width: none;
 }
@@ -15412,6 +15416,10 @@ button::-moz-focus-inner {
     max-height: 0;
   }
 
+  .\32xl\:max-h-auto {
+    max-height: max-content;
+  }
+
   .\32xl\:max-w-none {
     max-width: none;
   }
@@ -25318,6 +25326,10 @@ button::-moz-focus-inner {
 
   .xl\:max-h-none {
     max-height: 0;
+  }
+
+  .xl\:max-h-auto {
+    max-height: max-content;
   }
 
   .xl\:max-w-none {
@@ -35228,6 +35240,10 @@ button::-moz-focus-inner {
     max-height: 0;
   }
 
+  .lg\:max-h-auto {
+    max-height: max-content;
+  }
+
   .lg\:max-w-none {
     max-width: none;
   }
@@ -45134,6 +45150,10 @@ button::-moz-focus-inner {
 
   .md\:max-h-none {
     max-height: 0;
+  }
+
+  .md\:max-h-auto {
+    max-height: max-content;
   }
 
   .md\:max-w-none {
@@ -55044,6 +55064,10 @@ button::-moz-focus-inner {
     max-height: 0;
   }
 
+  .sm\:max-h-auto {
+    max-height: max-content;
+  }
+
   .sm\:max-w-none {
     max-width: none;
   }
@@ -64950,6 +64974,10 @@ button::-moz-focus-inner {
 
   .xs\:max-h-none {
     max-height: 0;
+  }
+
+  .xs\:max-h-auto {
+    max-height: max-content;
   }
 
   .xs\:max-w-none {

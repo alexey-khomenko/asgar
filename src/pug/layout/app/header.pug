@@ -1,4 +1,4 @@
-header(x-data="{show_menu: false}")
+header(x-data="{show: false}")
     -
         lg_top = {
             left: {
@@ -119,7 +119,7 @@ header(x-data="{show_menu: false}")
     div(class="bg-purple-80 hidden md:block px-6 sm:px-5 xs:px-3")
         div(class="flex justify-between items-center h-24 sm:h-16 py-2")
             - cls = 'flex justify-center items-center p-1 h-8 sm:h-6 w-8 sm:w-6 text-white hover:text-purple-20 focus:text-purple-20'
-            button(type="button", class=cls, @click.stop="show_menu = true")
+            button(type="button", class=cls, @click.stop="show = true")
                 - svg = {width: 25, height: 16, name: 'hamburger'}
                 include ../../partials/routes/svg
             case page.menu.mode
@@ -196,13 +196,22 @@ header(x-data="{show_menu: false}")
                 children: {}
             }
         }
-    - cls = 'bg-purple-80 hidden md:block fixed z-10 top-0 bottom-0 left-0 w-3/4 overflow-y-auto overflow-x-hidden transition duration-500 ease-in-out transform'
-    div(class=cls, :class="{'translate-x-0 shadow-2xl': show_menu, '-translate-x-full shadow-none': !show_menu}", @click.away="show_menu = false", x-cloak)
+    - cls = 'bg-purple-80 hidden md:block fixed z-10 top-0 bottom-0 left-0 w-3/4 overflow-y-auto overflow-x-hidden shadow-2xl transition-transform ease-linear duration-500 transform'
+    div(class=cls, x-show="show", x-cloak, @click.away="show = false",
+        x-transition:enter-start="-translate-x-full", x-transition:enter-end="translate-x-0",
+        x-transition:leave-start="translate-x-0", x-transition:leave-end="-translate-x-full"
+    )
         div(class="px-3")
             div(class="flex justify-end items-center h-16 sm:h-12 mb-1")
                 - cls = 'flex justify-center items-center p-1 h-8 sm:h-6 w-8 sm:w-6 text-white hover:text-purple-20 focus:text-purple-20'
-                button(type="button", class=cls, @click="show_menu = false")
+                button(type="button", class=cls, @click="show = false")
                     - svg = {width: 20, height: 20, name: 'cross'}
                     include ../../partials/routes/svg
             each menu in md_top
-                include menu/md-top
+                if menu.children[0] !== undefined
+                    - cls = 'p-3 mb-1 rounded-xl sm:rounded-lg transition duration-300 ease-linear'
+                    div(class=cls, :class="show_sub ? 'bg-purple-60 shadow-2xl' : 'bg-transparent shadow-none'", x-data="{show_sub: false}")
+                        include menu/md-top
+                else
+                    div(class="p-3 mb-1")
+                        include menu/md-top
