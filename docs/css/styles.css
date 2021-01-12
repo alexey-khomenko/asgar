@@ -5454,10 +5454,6 @@ button::-moz-focus-inner {
   max-height: 100vh;
 }
 
-.max-h-none {
-  max-height: 0;
-}
-
 .max-w-none {
   max-width: none;
 }
@@ -15408,10 +15404,6 @@ button::-moz-focus-inner {
     max-height: 100vh;
   }
 
-  .\32xl\:max-h-none {
-    max-height: 0;
-  }
-
   .\32xl\:max-w-none {
     max-width: none;
   }
@@ -25314,10 +25306,6 @@ button::-moz-focus-inner {
 
   .xl\:max-h-screen {
     max-height: 100vh;
-  }
-
-  .xl\:max-h-none {
-    max-height: 0;
   }
 
   .xl\:max-w-none {
@@ -35224,10 +35212,6 @@ button::-moz-focus-inner {
     max-height: 100vh;
   }
 
-  .lg\:max-h-none {
-    max-height: 0;
-  }
-
   .lg\:max-w-none {
     max-width: none;
   }
@@ -45130,10 +45114,6 @@ button::-moz-focus-inner {
 
   .md\:max-h-screen {
     max-height: 100vh;
-  }
-
-  .md\:max-h-none {
-    max-height: 0;
   }
 
   .md\:max-w-none {
@@ -55040,10 +55020,6 @@ button::-moz-focus-inner {
     max-height: 100vh;
   }
 
-  .sm\:max-h-none {
-    max-height: 0;
-  }
-
   .sm\:max-w-none {
     max-width: none;
   }
@@ -64946,10 +64922,6 @@ button::-moz-focus-inner {
 
   .xs\:max-h-screen {
     max-height: 100vh;
-  }
-
-  .xs\:max-h-none {
-    max-height: 0;
   }
 
   .xs\:max-w-none {

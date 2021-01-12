@@ -2,7 +2,7 @@ div(x-data="{show: false}")
     div(class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2")
         div(class="flex justify-between items-center space-x-1")
             div(class="flex justify-start lg:justify-between items-center flex-grow space-x-2")
-                span(class="font-bold text-base lg:text-lg sm:text-sm text-black leading-tight")
+                span(class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight")
                     | #{card.title}
                 include badge
             - cls = 'flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform'
@@ -11,6 +11,6 @@ div(x-data="{show: false}")
                 include ../../partials/routes/svg
 
         div(x-show="show", x-cloak)
-            div(class="flex justify-start items-center mt-2")
+            div(class="flex justify-start items-center mt-4")
                 span(class="text-xs md:text-base sm:text-xs leading-tight text-gray-60")
                     | !{card.text}
