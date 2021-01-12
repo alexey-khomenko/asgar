@@ -102,21 +102,23 @@
                   </svg></a>
               </div>
             </div>
-            <div class="p-3 mb-1 rounded-xl sm:rounded-lg transition duration-300 ease-linear" :class="show_sub ? 'bg-purple-60 shadow-2xl' : 'bg-transparent shadow-none'" x-data="{show_sub: false}">
+            <div class="p-3 mb-1 rounded-xl sm:rounded-lg transition duration-300 ease-linear" :class="show ? 'bg-purple-60 shadow-2xl' : 'bg-transparent shadow-none'" x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="flex justify-between items-center"><a class="flex justify-start items-center text-white hover:text-purple-20 focus:text-purple-20" href="contracts.html"><span class="flex justify-center items-center text-purple-20 p-1 sm:p-px h-8 sm:h-6 w-8 sm:w-6">
                     <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="25" height="29" viewBox="0 0 25 29">
                       <path fill="currentColor" d="M2.73887 0.0471191C1.25579 0.0471191 0.0666504 1.23626 0.0666504 2.71934V24.0971C0.0666504 24.8058 0.348187 25.4855 0.849326 25.9867C1.35046 26.4878 2.03016 26.7693 2.73887 26.7693H8.08332V24.2174L10.8758 21.4249H2.73887V18.7527H13.548L16.2202 16.0805H2.73887V13.4082H18.8925L21.4444 10.8563V8.06379L13.4278 0.0471191H2.73887ZM12.0917 2.05129L19.4403 9.3999H12.0917V2.05129ZM21.6448 14.7443C21.4444 14.7443 21.2574 14.8111 21.1104 14.9581L19.7476 16.321L22.54 19.1001L23.9029 17.7506C24.1835 17.4566 24.1835 16.9756 23.9029 16.6951L22.1659 14.9581C22.019 14.8111 21.8319 14.7443 21.6448 14.7443ZM18.9593 17.1093L10.7555 25.3263V28.1055H13.5347L21.7517 19.8884L18.9593 17.1093Z"></path>
                     </svg></span><span class="font-medium text-lg sm:text-sm leading-snug mx-3 sm:mx-2">Договоры</span><span class="flex text-lg sm:text-sm h-7 md:h-6 min-w-7 md:min-w-6 mr-1"><span class="flex justify-center items-center px-1 rounded-full bg-pink flex-grow"><span class="font-medium leading-tight">2</span></span></span></a>
-                <button class="flex justify-center items-center flex-shrink-0 h-6 sm:h-4 w-6 sm:w-4 sm:p-1 text-white hover:text-purple-20 focus:text-purple-20 transition-transform duration-500 ease-linear transform" type="button" :class="show_sub ? '-rotate-90' : 'rotate-90'" @click="show_sub = !show_sub">
+                <button class="flex justify-center items-center flex-shrink-0 h-6 sm:h-4 w-6 sm:w-4 sm:p-1 text-white hover:text-purple-20 focus:text-purple-20 transition-transform duration-500 ease-linear transform" type="button" :class="show ? '-rotate-90' : 'rotate-90'" @click="show = !show">
                   <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12">
                     <path fill="currentColor" d="M0.452344 9.78512L4.53194 5.70553L0.452345 1.61703L1.70829 0.361084L7.05273 5.70553L1.70829 11.05L0.452344 9.78512Z"></path>
                   </svg>
                 </button>
               </div>
-              <div x-show="show_sub" x-cloak>
-                <div class="flex justify-between items-center h-8 sm:h-6 mt-4 ml-1 sm:ml-0 pl-10 sm:pl-8"><span class="font-medium text-lg sm:text-sm leading-snug mr-3 sm:mr-2 text-purple-20 cursor-default">Договор № 1</span>
-                </div>
-                <div class="flex justify-between items-center h-8 sm:h-6 mt-4 ml-1 sm:ml-0 pl-10 sm:pl-8"><span class="font-medium text-lg sm:text-sm leading-snug mr-3 sm:mr-2 text-purple-20 cursor-default">Договор № 2</span>
+              <div class="overflow-hidden transition-all ease-linear duration-300" x-ref="max_h_outer" style="max-height: 0">
+                <div class="overflow-hidden" x-ref="max_h_inner">
+                  <div class="flex justify-between items-center h-8 sm:h-6 mt-4 ml-1 sm:ml-0 pl-10 sm:pl-8"><span class="font-medium text-lg sm:text-sm leading-snug mr-3 sm:mr-2 text-purple-20 cursor-default">Договор № 1</span>
+                  </div>
+                  <div class="flex justify-between items-center h-8 sm:h-6 mt-4 ml-1 sm:ml-0 pl-10 sm:pl-8"><span class="font-medium text-lg sm:text-sm leading-snug mr-3 sm:mr-2 text-purple-20 cursor-default">Договор № 2</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -170,7 +172,7 @@
         </div>
         <section class="mt-8 md:mt-6 sm:mt-5" data-c-contract-max-w>
           <div class="grid gap-2 grid-cols-2 lg:grid-cols-1">
-            <div x-data="{show: false}">
+            <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
                   <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Подписант договора</span>
@@ -181,12 +183,12 @@
                     </svg>
                   </button>
                 </div>
-                <div x-show="show" x-cloak>
-                  <div class="flex justify-start items-center mt-4"><span class="text-xs md:text-base sm:text-xs leading-tight text-gray-60">&hellip;</span></div>
+                <div class="overflow-hidden transition-all ease-linear duration-300" x-ref="max_h_outer" style="max-height: 0">
+                  <div class="flex justify-start items-center pt-4" x-ref="max_h_inner"><span class="text-xs md:text-base sm:text-xs leading-tight text-gray-60">&hellip;</span></div>
                 </div>
               </div>
             </div>
-            <div x-data="{show: false}">
+            <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
                   <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Доверенные лица</span>
@@ -197,12 +199,12 @@
                     </svg>
                   </button>
                 </div>
-                <div x-show="show" x-cloak>
-                  <div class="flex justify-start items-center mt-4"><span class="text-xs md:text-base sm:text-xs leading-tight text-gray-60">&hellip;</span></div>
+                <div class="overflow-hidden transition-all ease-linear duration-300" x-ref="max_h_outer" style="max-height: 0">
+                  <div class="flex justify-start items-center pt-4" x-ref="max_h_inner"><span class="text-xs md:text-base sm:text-xs leading-tight text-gray-60">&hellip;</span></div>
                 </div>
               </div>
             </div>
-            <div x-data="{show: false}">
+            <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
                   <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Оборудование в аренде</span><span class="flex text-sm sm:text-xs h-6 sm:h-5 min-w-6 sm:min-w-5 text-white flex-shrink-0"><span class="flex justify-center items-center px-1 rounded-full flex-grow bg-pink"><span class="font-medium leading-tight">2</span></span></span>
@@ -213,12 +215,12 @@
                     </svg>
                   </button>
                 </div>
-                <div x-show="show" x-cloak>
-                  <div class="flex justify-start items-center mt-4"><span class="text-xs md:text-base sm:text-xs leading-tight text-gray-60">&hellip;</span></div>
+                <div class="overflow-hidden transition-all ease-linear duration-300" x-ref="max_h_outer" style="max-height: 0">
+                  <div class="flex justify-start items-center pt-4" x-ref="max_h_inner"><span class="text-xs md:text-base sm:text-xs leading-tight text-gray-60">&hellip;</span></div>
                 </div>
               </div>
             </div>
-            <div x-data="{show: false}">
+            <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
                   <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Статус охранной сигрализации</span><span class="flex text-sm sm:text-xs h-6 sm:h-5 min-w-6 sm:min-w-5 text-white flex-shrink-0"><span class="flex justify-center items-center px-2 rounded-full flex-grow bg-green-70"><span class="font-medium leading-tight">Активна</span></span></span>
@@ -229,8 +231,8 @@
                     </svg>
                   </button>
                 </div>
-                <div x-show="show" x-cloak>
-                  <div class="flex justify-start items-center mt-4"><span class="text-xs md:text-base sm:text-xs leading-tight text-gray-60">&hellip;</span></div>
+                <div class="overflow-hidden transition-all ease-linear duration-300" x-ref="max_h_outer" style="max-height: 0">
+                  <div class="flex justify-start items-center pt-4" x-ref="max_h_inner"><span class="text-xs md:text-base sm:text-xs leading-tight text-gray-60">&hellip;</span></div>
                 </div>
               </div>
             </div>

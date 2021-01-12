@@ -8,7 +8,7 @@ div(class="flex justify-between items-center")
 
     if menu.children[0] !== undefined
         - cls = 'flex justify-center items-center flex-shrink-0 h-6 sm:h-4 w-6 sm:w-4 sm:p-1 text-white hover:text-purple-20 focus:text-purple-20 transition-transform duration-500 ease-linear transform'
-        button(type="button", class=cls, :class="show_sub ? '-rotate-90' : 'rotate-90'", @click="show_sub = !show_sub")
+        button(type="button", class=cls, :class="show ? '-rotate-90' : 'rotate-90'", @click="show = !show")
             - svg = {width: 8, height: 12, name: 'chevron'}
             include ../../../partials/routes/svg
     else if page.link !== menu.link
@@ -17,17 +17,18 @@ div(class="flex justify-between items-center")
             include ../../../partials/routes/svg
 
 if menu.children[0] !== undefined
-    div(x-show="show_sub", x-cloak)
-        each submenu in menu.children
-            div(class="flex justify-between items-center h-8 sm:h-6 mt-4 ml-1 sm:ml-0 pl-10 sm:pl-8")
-                if page.link === submenu.link
-                    span(class="font-medium text-lg sm:text-sm leading-snug mr-3 sm:mr-2 text-purple-20 cursor-default")
-                        | #{submenu.text}
-                else
-                    a(href=submenu.link, class="font-medium text-lg sm:text-sm leading-snug mr-3 sm:mr-2 text-white hover:text-purple-20 focus:text-purple-20")
-                        | #{submenu.text}
+    div(class="overflow-hidden transition-all ease-linear duration-300", x-ref="max_h_outer", style="max-height: 0")
+        div(class="overflow-hidden", x-ref="max_h_inner")
+            each submenu in menu.children
+                div(class="flex justify-between items-center h-8 sm:h-6 mt-4 ml-1 sm:ml-0 pl-10 sm:pl-8")
+                    if page.link === submenu.link
+                        span(class="font-medium text-lg sm:text-sm leading-snug mr-3 sm:mr-2 text-purple-20 cursor-default")
+                            | #{submenu.text}
+                    else
+                        a(href=submenu.link, class="font-medium text-lg sm:text-sm leading-snug mr-3 sm:mr-2 text-white hover:text-purple-20 focus:text-purple-20")
+                            | #{submenu.text}
 
-                if page.link !== submenu.link
-                    a(href=submenu.link, class="flex justify-center items-center flex-shrink-0 h-6 sm:h-4 w-6 sm:w-4 sm:p-1 text-white hover:text-purple-20 focus:text-purple-20")
-                        - svg = {width: 8, height: 12, name: 'chevron'}
-                        include ../../../partials/routes/svg
+                    if page.link !== submenu.link
+                        a(href=submenu.link, class="flex justify-center items-center flex-shrink-0 h-6 sm:h-4 w-6 sm:w-4 sm:p-1 text-white hover:text-purple-20 focus:text-purple-20")
+                            - svg = {width: 8, height: 12, name: 'chevron'}
+                            include ../../../partials/routes/svg
