@@ -1,10 +1,10 @@
-form(name="reset", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-data="{show: false}")
+form(name="reset", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-data="resetForm()", x-spread="submit")
     include ../../partials/routes/login
 
     div(class="mb-4")
         -
             password = {
-                name: 'password-new',
+                name: 'password_new',
                 label: 'Новый пароль',
                 placeholder: 'Введите новый пароль',
                 desc: 'Пароль должен быть не менее 8 символов'
@@ -14,7 +14,7 @@ form(name="reset", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0
     div(class="mb-8 md:mb-12 sm:mb-10")
         -
             password = {
-                name: 'password-confirm',
+                name: 'password_confirm',
                 label: 'Повторите пароль',
                 placeholder: 'Повторите новый пароль',
                 desc: 'Оба пароля должны совпадать'

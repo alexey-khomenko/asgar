@@ -1,60 +1,70 @@
 //----------------------------------------------------------------------------------------------------------------------
 // форма входа
-document.addEventListener("submit", function (e) {
-    if (e.target.name !== "login") return true;
+function loginForm() {
+    return {
+        show: false,
+        sending: false,
+        login: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.login.error = false;
+                    this.password.error = false;
+                },
+                ["@paste"]() {
+                    this.login.error = false;
+                    this.password.error = false;
+                },
+                [":class"]() {
+                    return this.login.error ? "border-red-70" : "border-gray-40";
+                },
+            },
+        },
+        password: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.login.error = false;
+                    this.password.error = false;
+                },
+                ["@paste"]() {
+                    this.login.error = false;
+                    this.password.error = false;
+                },
+                [":class"]() {
+                    return this.password.error ? "border-red-70" : "border-gray-40";
+                },
+                [":type"]() {
+                    return this.show ? "text" : "password";
+                },
+            },
+        },
+        submit: {
+            ["@submit.prevent"]() {
+                this.login.error = this.login.value.length === 0;
+                this.password.error = this.password.value.length < MIN_PASSWORD_LENGTH;
 
-    e.preventDefault();
-    let errors = false;
-    const
-        submit = e.target.querySelector("[data-s-auth-submit]"),
-        spinner = e.target.querySelector("[data-s-auth-submit-spinner]"),
-        action = e.target.action,
-        login = e.target.elements.login,
-        login_val = login.value.trim(),
-        password = e.target.elements.password,
-        password_val = password.value.trim()
-    ;
-    submit.focus();
+                if (this.login.error || this.password.error) return;
 
-    if (login_val.length === 0) {
-        errors = true;
-        login.classList.add("border-red-70");
-    } else {
-        login.classList.remove("border-red-70");
-    }
+                this.sending = true;
 
-    if (password_val.length < MIN_PASSWORD_LENGTH) {
-        errors = true;
-        password.classList.add("border-red-70");
-    } else {
-        password.classList.remove("border-red-70");
-    }
-
-    if (errors) return false;
-
-    submit.classList.add("hidden");
-    spinner.classList.remove("hidden");
-
-    // > демо
-    setTimeout(function () {
-        if (password_val !== login_val) {
-            errors = true;
-            password.classList.add("border-red-70");
-        } else {
-            password.classList.remove("border-red-70");
-        }
-
-        if (errors) {
-            spinner.classList.add("hidden");
-            submit.classList.remove("hidden");
-
-            return false;
-        }
-
-        document.location.assign("index.html");
-    }, 1200);
-    console.log(action);
-    console.log(login_val);
-    console.log(password_val);
-    // < демо
-});
+                // > демо
+                const that = this;
+                setTimeout(function () {
+                    if (that.login.value !== that.password.value) {
+                        that.password.error = true;
+                        that.sending = false;
+                    } else {
+                        document.location.assign("index.html");
+                    }
+                }, 1200);
+                console.log(this.$el.action);
+                console.log(this.login.value);
+                console.log(this.password.value);
+                // < демо
+            }
+        },
+    };
+}

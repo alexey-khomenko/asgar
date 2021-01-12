@@ -1,7 +1,7 @@
-button(type="submit", class="flex justify-center items-center w-full bg-purple-80 hover:bg-purple-40 focus:bg-purple-40 h-12 md:h-16 sm:h-12 rounded-xl p-1", data-s-auth-submit)
+button(type="submit", class="flex justify-center items-center w-full bg-purple-80 hover:bg-purple-40 focus:bg-purple-40 h-12 md:h-16 sm:h-12 rounded-xl p-1", x-show="!sending")
     span(class="font-semibold text-white text-lg sm:text-base leading-5")
         | #{submit}
-div(class="flex justify-center items-center w-full h-12 md:h-16 sm:h-12 hidden", data-s-auth-submit-spinner)
+div(class="flex justify-center items-center w-full h-12 md:h-16 sm:h-12", x-show="sending", x-cloak)
     span(class="animate-spin-slow")
         - svg = {width: 24, height: 24, name: 'spinner'}
         include ../../partials/routes/svg
