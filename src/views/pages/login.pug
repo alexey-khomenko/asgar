@@ -1,0 +1,16 @@
+extends ../layouts/auth
+
+block data
+    -
+        page = {
+            title: {
+                text: 'Авторизация'
+            },
+            menu: {
+                link: ''
+            }
+        }
+
+block main
+    include ../page/login/info
+    include ../page/login/form

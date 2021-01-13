@@ -1,0 +1,10 @@
+span(class="flex justify-center items-center text-purple-20 p-1 sm:p-px h-8 sm:h-6 w-8 sm:w-6")
+    - svg = {width: menu.svg.width, height: menu.svg.height, name: menu.svg.name}
+    include ../../../../partials/pages/svg
+span(class="font-medium text-lg sm:text-sm leading-snug mx-3 sm:mx-2")
+    | #{menu.text}
+if menu.number > 0
+    span(class="flex text-lg sm:text-sm h-7 md:h-6 min-w-7 md:min-w-6 mr-1")
+        span(class="flex justify-center items-center px-1 rounded-full bg-pink flex-grow")
+            span(class="font-medium leading-tight")
+                | #{menu.number}

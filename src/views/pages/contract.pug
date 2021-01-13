@@ -1,0 +1,56 @@
+extends ../layouts/app
+
+block data
+    -
+        page = {
+            title: {
+                text: 'Договор № 842145',
+                number: 0
+            },
+            menu: {
+                mode: 'contract',
+                console_number: 657867643543
+            },
+            link: 'contract.html'
+        }
+
+block main
+        - console_number = 657867643543
+        include ../page/contract/console
+        - address = 'пр. Московский 172/12'
+        - debt = 320.15
+        - balance = 320.15
+        - sum = 320.15
+        - pay = '#'
+        include ../page/contract/info
+        -
+            cards = {
+                0: {
+                    title: 'Подписант договора',
+                    badge: {},
+                    text: '&hellip;'
+                },
+                1: {
+                    title: 'Доверенные лица',
+                    badge: {},
+                    text: '&hellip;'
+                },
+                2: {
+                    title: 'Оборудование в аренде',
+                    badge: {
+                        type: 'number',
+                        number: 2
+                    },
+                    text: '&hellip;'
+                },
+                3: {
+                    title: 'Статус охранной сигрализации',
+                    badge: {
+                        type: 'status',
+                        status: true,
+                        text: 'Активна'
+                    },
+                    text: '&hellip;'
+                }
+            }
+        include ../page/contract/group

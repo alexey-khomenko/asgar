@@ -4,67 +4,85 @@ function loginForm() {
     return {
         show: false,
         sending: false,
-        login: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.login.error = false;
-                    this.password.error = false;
+        fields: {
+            login: {
+                value: "",
+                error: false,
+                spread: {
+                    ["@input"]() {
+                        this.cleanErrors();
+                    },
+                    ["@paste"]() {
+                        this.cleanErrors();
+                    },
+                    [":class"]() {
+                        return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                    },
                 },
-                ["@paste"]() {
-                    this.login.error = false;
-                    this.password.error = false;
-                },
-                [":class"]() {
-                    return this.login.error ? "border-red-70" : "border-gray-40";
+                validate: function (that) {
+                    return that.fields.login.value.length === 0;
                 },
             },
-        },
-        password: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.login.error = false;
-                    this.password.error = false;
+            password: {
+                value: "",
+                error: false,
+                spread: {
+                    ["@input"]() {
+                        this.cleanErrors();
+                    },
+                    ["@paste"]() {
+                        this.cleanErrors();
+                    },
+                    [":class"]() {
+                        return this.fields.password.error ? "border-red-70" : "border-gray-40";
+                    },
+                    [":type"]() {
+                        return this.show ? "text" : "password";
+                    },
                 },
-                ["@paste"]() {
-                    this.login.error = false;
-                    this.password.error = false;
-                },
-                [":class"]() {
-                    return this.password.error ? "border-red-70" : "border-gray-40";
-                },
-                [":type"]() {
-                    return this.show ? "text" : "password";
+                validate: function (that) {
+                    return that.fields.password.value.length < MIN_PASSWORD_LENGTH;
                 },
             },
         },
         submit: {
             ["@submit.prevent"]() {
-                this.login.error = this.login.value.length === 0;
-                this.password.error = this.password.value.length < MIN_PASSWORD_LENGTH;
-
-                if (this.login.error || this.password.error) return;
-
-                this.sending = true;
-
-                // > демо
-                const that = this;
-                setTimeout(function () {
-                    if (that.login.value !== that.password.value) {
-                        that.password.error = true;
-                        that.sending = false;
-                    } else {
-                        document.location.assign("index.html");
-                    }
-                }, 1200);
-                console.log(this.$el.action);
-                console.log(this.login.value);
-                console.log(this.password.value);
-                // < демо
+                this.$refs.submit_btn.focus();
+                this.validate();
+                this.send();
             }
+        },
+        cleanErrors: function () {
+            for (let field in this.fields) {
+                this.fields[field]['error'] = false;
+            }
+        },
+        validate: function () {
+            for (let field in this.fields) {
+                this.fields[field]['error'] = this.fields[field]['validate'](this);
+            }
+        },
+        send: function () {
+            for (let field in this.fields) {
+                if (this.fields[field]['error']) return;
+            }
+            this.sending = true;
+
+            let data = new FormData(this.$el);
+
+            // > демо
+            console.log(this.$el.action);
+
+            let that = this;
+            setTimeout(function () {
+                if (that.fields.login.value !== that.fields.password.value) {
+                    that.fields.password.error = true;
+                    that.sending = false;
+                } else {
+                    document.location.assign("index.html");
+                }
+            }, 1200);
+            // < демо
         },
     };
 }
@@ -74,89 +92,101 @@ function resetForm() {
     return {
         show: false,
         sending: false,
-        login: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.login.error = false;
-                    this.password_new.error = false;
-                    this.password_confirm.error = false;
+        fields: {
+            login: {
+                value: "",
+                error: false,
+                spread: {
+                    ["@input"]() {
+                        this.cleanErrors();
+                    },
+                    ["@paste"]() {
+                        this.cleanErrors();
+                    },
+                    [":class"]() {
+                        return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                    },
                 },
-                ["@paste"]() {
-                    this.login.error = false;
-                    this.password_new.error = false;
-                    this.password_confirm.error = false;
-                },
-                [":class"]() {
-                    return this.login.error ? "border-red-70" : "border-gray-40";
-                },
-            },
-        },
-        password_new: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.login.error = false;
-                    this.password_new.error = false;
-                    this.password_confirm.error = false;
-                },
-                ["@paste"]() {
-                    this.login.error = false;
-                    this.password_new.error = false;
-                    this.password_confirm.error = false;
-                },
-                [":class"]() {
-                    return this.password_new.error ? "border-red-70" : "border-gray-40";
-                },
-                [":type"]() {
-                    return this.show ? "text" : "password";
+                validate: function (that) {
+                    return that.fields.login.value.length === 0;
                 },
             },
-        },
-        password_confirm: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.login.error = false;
-                    this.password_new.error = false;
-                    this.password_confirm.error = false;
+            password_new: {
+                value: "",
+                error: false,
+                spread: {
+                    ["@input"]() {
+                        this.cleanErrors();
+                    },
+                    ["@paste"]() {
+                        this.cleanErrors();
+                    },
+                    [":class"]() {
+                        return this.fields.password_new.error ? "border-red-70" : "border-gray-40";
+                    },
+                    [":type"]() {
+                        return this.show ? "text" : "password";
+                    },
                 },
-                ["@paste"]() {
-                    this.login.error = false;
-                    this.password_new.error = false;
-                    this.password_confirm.error = false;
+                validate: function (that) {
+                    return that.fields.password_new.value.length < MIN_PASSWORD_LENGTH;
                 },
-                [":class"]() {
-                    return this.password_confirm.error ? "border-red-70" : "border-gray-40";
+            },
+            password_confirm: {
+                value: "",
+                error: false,
+                spread: {
+                    ["@input"]() {
+                        this.cleanErrors();
+                    },
+                    ["@paste"]() {
+                        this.cleanErrors();
+                    },
+                    [":class"]() {
+                        return this.fields.password_confirm.error ? "border-red-70" : "border-gray-40";
+                    },
+                    [":type"]() {
+                        return this.show ? "text" : "password";
+                    },
                 },
-                [":type"]() {
-                    return this.show ? "text" : "password";
+                validate: function (that) {
+                    return that.fields.password_confirm.value.length < MIN_PASSWORD_LENGTH
+                        || that.fields.password_confirm.value !== that.fields.password_new.value;
                 },
             },
         },
         submit: {
             ["@submit.prevent"]() {
-                this.login.error = this.login.value.length === 0;
-                this.password_new.error = this.password_new.value.length < MIN_PASSWORD_LENGTH;
-                this.password_confirm.error = this.password_confirm.value.length < MIN_PASSWORD_LENGTH || this.password_new.value !== this.password_confirm.value;
-
-                if (this.login.error || this.password_new.error || this.password_confirm.error) return;
-
-                this.sending = true;
-
-                // > демо
-                setTimeout(function () {
-                    document.location.assign("index.html");
-                }, 1200);
-                console.log(this.$el.action);
-                console.log(this.login.value);
-                console.log(this.password_new.value);
-                console.log(this.password_confirm.value);
-                // < демо
+                this.$refs.submit_btn.focus();
+                this.validate();
+                this.send();
             }
+        },
+        cleanErrors: function () {
+            for (let field in this.fields) {
+                this.fields[field]['error'] = false;
+            }
+        },
+        validate: function () {
+            for (let field in this.fields) {
+                this.fields[field]['error'] = this.fields[field]['validate'](this);
+            }
+        },
+        send: function () {
+            for (let field in this.fields) {
+                if (this.fields[field]['error']) return;
+            }
+            this.sending = true;
+
+            let data = new FormData(this.$el);
+
+            // > демо
+            console.log(this.$el.action);
+
+            setTimeout(function () {
+                document.location.assign("index.html");
+            }, 10200);
+            // < демо
         },
     };
 }

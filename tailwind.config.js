@@ -1,7 +1,7 @@
 module.exports = {
     purge: {
         mode: 'layers',
-        content: ['src/pug/**/*.pug', 'src/scripts/**/*.js'],
+        content: ['src/views/**/*.pug', 'src/scripts/**/*.js'],
     },
     theme: {
         screens: {

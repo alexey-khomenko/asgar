@@ -1,0 +1,15 @@
+div(class="flex flex-col md:flex-row justify-between items-stretch bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2 min-h-32 md:min-h-0")
+    div
+        div(class="mb-3 md:mb-2 sm:mb-1")
+            a(href=card.link, class="font-bold text-lg sm:text-base text-black hover:text-purple-40 focus:text-purple-40")
+                | #{card.title}
+        div(class="bg-purple-80 pt-px -ml-1 mr-2 mb-1 md:hidden")
+        div(class="text-xs md:text-base sm:text-xs leading-tight text-gray-60 mb-2 md:mb-0")
+            | #{card.address}
+    div(class="flex justify-start items-center")
+        - color = card.debt ? " text-red-70" : " text-green-70"
+        span(class="text-base md:text-lg sm:text-base leading-snug" + color)
+            | #{card.sum} ₴
+        a(href=card.link, class="flex justify-center items-center w-4 md:w-5 sm:w-4 h-4 md:h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 ml-2")
+            - svg = {width: 6, height: 9, name: 'chevron'}
+            include ../../partials/pages/svg

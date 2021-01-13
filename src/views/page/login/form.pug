@@ -1,0 +1,17 @@
+form(name="login_form", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-data="loginForm()", x-spread="submit")
+    include ../../partials/pages/login
+
+    div(class="mb-5")
+        -
+            password = {
+                name: 'password',
+                label: 'Пароль',
+                placeholder: 'Введите пароль',
+                desc: ''
+            }
+        include ../../partials/pages/password
+
+    include ../../page/login/forgot
+
+    - submit = 'Войти';
+    include ../../partials/pages/submit
