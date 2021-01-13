@@ -167,7 +167,9 @@
             <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
-                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Заказать выезд технического специалиста</span></div>
+                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2">
+                    <button class="text-base md:text-lg sm:text-sm text-black leading-tight font-bold" type="button" @click="show = !show">Заказать выезд технического специалиста</button>
+                  </div>
                   <button class="flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform" type="button" :class="show ? '-rotate-90' : 'rotate-90'" @click="show = !show">
                     <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 8 12">
                       <path fill="currentColor" d="M0.452344 9.78512L4.53194 5.70553L0.452345 1.61703L1.70829 0.361084L7.05273 5.70553L1.70829 11.05L0.452344 9.78512Z"></path>
@@ -185,7 +187,9 @@
             <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
-                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Связаться с пультом охраны</span></div>
+                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2">
+                    <button class="text-base md:text-lg sm:text-sm text-black leading-tight font-bold" type="button" @click="show = !show">Связаться с пультом охраны</button>
+                  </div>
                   <button class="flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform" type="button" :class="show ? '-rotate-90' : 'rotate-90'" @click="show = !show">
                     <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 8 12">
                       <path fill="currentColor" d="M0.452344 9.78512L4.53194 5.70553L0.452345 1.61703L1.70829 0.361084L7.05273 5.70553L1.70829 11.05L0.452344 9.78512Z"></path>
@@ -203,7 +207,9 @@
             <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
-                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Связаться с юридическим отделом</span></div>
+                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2">
+                    <button class="text-base md:text-lg sm:text-sm text-black leading-tight font-bold" type="button" @click="show = !show">Связаться с юридическим отделом</button>
+                  </div>
                   <button class="flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform" type="button" :class="show ? '-rotate-90' : 'rotate-90'" @click="show = !show">
                     <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 8 12">
                       <path fill="currentColor" d="M0.452344 9.78512L4.53194 5.70553L0.452345 1.61703L1.70829 0.361084L7.05273 5.70553L1.70829 11.05L0.452344 9.78512Z"></path>
@@ -221,7 +227,9 @@
             <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
-                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Связаться с финансовым отделом</span></div>
+                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2">
+                    <button class="text-base md:text-lg sm:text-sm text-black leading-tight font-bold" type="button" @click="show = !show">Связаться с финансовым отделом</button>
+                  </div>
                   <button class="flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform" type="button" :class="show ? '-rotate-90' : 'rotate-90'" @click="show = !show">
                     <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 8 12">
                       <path fill="currentColor" d="M0.452344 9.78512L4.53194 5.70553L0.452345 1.61703L1.70829 0.361084L7.05273 5.70553L1.70829 11.05L0.452344 9.78512Z"></path>
@@ -239,7 +247,9 @@
             <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
-                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Заказать новое подключение</span></div>
+                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2">
+                    <button class="text-base md:text-lg sm:text-sm text-black leading-tight font-bold" type="button" @click="show = !show">Заказать новое подключение</button>
+                  </div>
                   <button class="flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform" type="button" :class="show ? '-rotate-90' : 'rotate-90'" @click="show = !show">
                     <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 8 12">
                       <path fill="currentColor" d="M0.452344 9.78512L4.53194 5.70553L0.452345 1.61703L1.70829 0.361084L7.05273 5.70553L1.70829 11.05L0.452344 9.78512Z"></path>
@@ -257,7 +267,9 @@
             <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
-                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Заказать дооборудование системы</span></div>
+                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2">
+                    <button class="text-base md:text-lg sm:text-sm text-black leading-tight font-bold" type="button" @click="show = !show">Заказать дооборудование системы</button>
+                  </div>
                   <button class="flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform" type="button" :class="show ? '-rotate-90' : 'rotate-90'" @click="show = !show">
                     <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 8 12">
                       <path fill="currentColor" d="M0.452344 9.78512L4.53194 5.70553L0.452345 1.61703L1.70829 0.361084L7.05273 5.70553L1.70829 11.05L0.452344 9.78512Z"></path>
@@ -275,7 +287,9 @@
             <div x-data="maxHeightData()" x-init="maxHeightClick" x-spread="maxHeightResize">
               <div class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2">
                 <div class="flex justify-between items-center space-x-1">
-                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2"><span class="font-bold text-base md:text-lg sm:text-sm text-black leading-tight">Техническая поддержка</span></div>
+                  <div class="flex justify-start lg:justify-between items-center flex-grow space-x-2">
+                    <button class="text-base md:text-lg sm:text-sm text-black leading-tight font-bold" type="button" @click="show = !show">Техническая поддержка</button>
+                  </div>
                   <button class="flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform" type="button" :class="show ? '-rotate-90' : 'rotate-90'" @click="show = !show">
                     <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="6" height="9" viewBox="0 0 8 12">
                       <path fill="currentColor" d="M0.452344 9.78512L4.53194 5.70553L0.452345 1.61703L1.70829 0.361084L7.05273 5.70553L1.70829 11.05L0.452344 9.78512Z"></path>
