@@ -1,5 +1,6 @@
-form(name="login_form", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-data="loginForm()", x-spread="submit")
-    include ../../partials/pages/login
+form(name="login_form", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-data="authForm()", x-spread="spread")
+    div(class="mb-4")
+        include ../../partials/pages/login
 
     div(class="mb-5")
         -
@@ -11,7 +12,8 @@ form(name="login_form", action="ajax.php", class="max-w-xs md:max-w-full px-3 md
             }
         include ../../partials/pages/password
 
-    include ../../page/login/forgot
+    div(class="mb-12 md:mb-16 sm:mb-10")
+        include ../../page/login/forgot
 
     - submit = 'Войти';
     include ../../partials/pages/submit

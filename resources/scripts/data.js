@@ -1,19 +1,19 @@
 const MIN_PASSWORD_LENGTH = 8;
 
-function loginInit () {
-    return {
+function login_formInit (that) {
+    that.fields = {
         login: {
             value: "",
             error: false,
             spread: {
                 ["@input"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 ["@paste"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 [":class"]() {
-                    return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                    return that.fields.login.error ? "border-red-70" : "border-gray-40";
                 },
             },
             validate: function (that) {
@@ -25,16 +25,16 @@ function loginInit () {
             error: false,
             spread: {
                 ["@input"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 ["@paste"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 [":class"]() {
-                    return this.fields.password.error ? "border-red-70" : "border-gray-40";
+                    return that.fields.password.error ? "border-red-70" : "border-gray-40";
                 },
                 [":type"]() {
-                    return this.show ? "text" : "password";
+                    return that.show ? "text" : "password";
                 },
             },
             validate: function (that) {
@@ -44,20 +44,20 @@ function loginInit () {
     };
 }
 
-function resetInit () {
-    return {
+function reset_formInit (that) {
+    that.fields = {
         login: {
             value: "",
             error: false,
             spread: {
                 ["@input"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 ["@paste"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 [":class"]() {
-                    return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                    return that.fields.login.error ? "border-red-70" : "border-gray-40";
                 },
             },
             validate: function (that) {
@@ -69,16 +69,16 @@ function resetInit () {
             error: false,
             spread: {
                 ["@input"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 ["@paste"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 [":class"]() {
-                    return this.fields.password_new.error ? "border-red-70" : "border-gray-40";
+                    return that.fields.password_new.error ? "border-red-70" : "border-gray-40";
                 },
                 [":type"]() {
-                    return this.show ? "text" : "password";
+                    return that.show ? "text" : "password";
                 },
             },
             validate: function (that) {
@@ -90,16 +90,16 @@ function resetInit () {
             error: false,
             spread: {
                 ["@input"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 ["@paste"]() {
-                    this.cleanErrors();
+                    that.cleanErrors();
                 },
                 [":class"]() {
-                    return this.fields.password_confirm.error ? "border-red-70" : "border-gray-40";
+                    return that.fields.password_confirm.error ? "border-red-70" : "border-gray-40";
                 },
                 [":type"]() {
-                    return this.show ? "text" : "password";
+                    return that.show ? "text" : "password";
                 },
             },
             validate: function (that) {

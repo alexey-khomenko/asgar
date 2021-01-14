@@ -1,5 +1,6 @@
-form(name="reset_form", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-data="resetForm()", x-spread="submit")
-    include ../../partials/pages/login
+form(name="reset_form", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-data="authForm()", x-spread="spread")
+    div(class="mb-4")
+        include ../../partials/pages/login
 
     div(class="mb-4")
         -
