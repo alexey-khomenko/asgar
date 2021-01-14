@@ -1,50 +1,166 @@
+
+const MIN_PASSWORD_LENGTH = 8;
+
+function loginInit () {
+    return {
+        login: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                },
+            },
+            validate: function (that) {
+                return that.fields.login.value.length === 0;
+            },
+        },
+        password: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.password.error ? "border-red-70" : "border-gray-40";
+                },
+                [":type"]() {
+                    return this.show ? "text" : "password";
+                },
+            },
+            validate: function (that) {
+                return that.fields.password.value.length < MIN_PASSWORD_LENGTH;
+            },
+        },
+    };
+}
+
+function resetInit () {
+    return {
+        login: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                },
+            },
+            validate: function (that) {
+                return that.fields.login.value.length === 0;
+            },
+        },
+        password_new: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.password_new.error ? "border-red-70" : "border-gray-40";
+                },
+                [":type"]() {
+                    return this.show ? "text" : "password";
+                },
+            },
+            validate: function (that) {
+                return that.fields.password_new.value.length < MIN_PASSWORD_LENGTH;
+            },
+        },
+        password_confirm: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.password_confirm.error ? "border-red-70" : "border-gray-40";
+                },
+                [":type"]() {
+                    return this.show ? "text" : "password";
+                },
+            },
+            validate: function (that) {
+                return that.fields.password_confirm.value.length < MIN_PASSWORD_LENGTH
+                    || that.fields.password_confirm.value !== that.fields.password_new.value;
+            },
+        },
+    };
+}
 //----------------------------------------------------------------------------------------------------------------------
-// форма входа
+// универсальная форма
 function loginForm() {
+    let fields_l = {
+        login: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                },
+            },
+            validate: function (that) {
+                return that.fields.login.value.length === 0;
+            },
+        },
+        password: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.password.error ? "border-red-70" : "border-gray-40";
+                },
+                [":type"]() {
+                    return this.show ? "text" : "password";
+                },
+            },
+            validate: function (that) {
+                return that.fields.password.value.length < MIN_PASSWORD_LENGTH;
+            },
+        },
+    };
+
+    // todo в x-init
+
     return {
         show: false,
         sending: false,
-        fields: {
-            login: {
-                value: "",
-                error: false,
-                spread: {
-                    ["@input"]() {
-                        this.cleanErrors();
-                    },
-                    ["@paste"]() {
-                        this.cleanErrors();
-                    },
-                    [":class"]() {
-                        return this.fields.login.error ? "border-red-70" : "border-gray-40";
-                    },
-                },
-                validate: function (that) {
-                    return that.fields.login.value.length === 0;
-                },
-            },
-            password: {
-                value: "",
-                error: false,
-                spread: {
-                    ["@input"]() {
-                        this.cleanErrors();
-                    },
-                    ["@paste"]() {
-                        this.cleanErrors();
-                    },
-                    [":class"]() {
-                        return this.fields.password.error ? "border-red-70" : "border-gray-40";
-                    },
-                    [":type"]() {
-                        return this.show ? "text" : "password";
-                    },
-                },
-                validate: function (that) {
-                    return that.fields.password.value.length < MIN_PASSWORD_LENGTH;
-                },
-            },
-        },
+        fields: fields_l,
         submit: {
             ["@submit.prevent"]() {
                 this.$refs.submit_btn.focus();
@@ -75,86 +191,97 @@ function loginForm() {
 
             let that = this;
             setTimeout(function () {
-                if (that.fields.login.value !== that.fields.password.value) {
-                    that.fields.password.error = true;
-                    that.sending = false;
-                } else {
+                if (that.$el.name === 'reset_form') {
                     document.location.assign("index.html");
                 }
-            }, 1200);
+
+                if (that.$el.name === 'login_form') {
+                    if (that.fields.login.value !== that.fields.password.value) {
+                        that.fields.password.error = true;
+                        that.sending = false;
+                    } else {
+                        document.location.assign("index.html");
+                    }
+                }
+
+            }, 1020);
             // < демо
         },
     };
 }
 //----------------------------------------------------------------------------------------------------------------------
-// форма сброса пароля
+// универсальная форма
 function resetForm() {
+    let fields_r = {
+        login: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                },
+            },
+            validate: function (that) {
+                return that.fields.login.value.length === 0;
+            },
+        },
+        password_new: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.password_new.error ? "border-red-70" : "border-gray-40";
+                },
+                [":type"]() {
+                    return this.show ? "text" : "password";
+                },
+            },
+            validate: function (that) {
+                return that.fields.password_new.value.length < MIN_PASSWORD_LENGTH;
+            },
+        },
+        password_confirm: {
+            value: "",
+            error: false,
+            spread: {
+                ["@input"]() {
+                    this.cleanErrors();
+                },
+                ["@paste"]() {
+                    this.cleanErrors();
+                },
+                [":class"]() {
+                    return this.fields.password_confirm.error ? "border-red-70" : "border-gray-40";
+                },
+                [":type"]() {
+                    return this.show ? "text" : "password";
+                },
+            },
+            validate: function (that) {
+                return that.fields.password_confirm.value.length < MIN_PASSWORD_LENGTH
+                    || that.fields.password_confirm.value !== that.fields.password_new.value;
+            },
+        },
+    };
+
+    // todo в x-init
+
     return {
         show: false,
         sending: false,
-        fields: {
-            login: {
-                value: "",
-                error: false,
-                spread: {
-                    ["@input"]() {
-                        this.cleanErrors();
-                    },
-                    ["@paste"]() {
-                        this.cleanErrors();
-                    },
-                    [":class"]() {
-                        return this.fields.login.error ? "border-red-70" : "border-gray-40";
-                    },
-                },
-                validate: function (that) {
-                    return that.fields.login.value.length === 0;
-                },
-            },
-            password_new: {
-                value: "",
-                error: false,
-                spread: {
-                    ["@input"]() {
-                        this.cleanErrors();
-                    },
-                    ["@paste"]() {
-                        this.cleanErrors();
-                    },
-                    [":class"]() {
-                        return this.fields.password_new.error ? "border-red-70" : "border-gray-40";
-                    },
-                    [":type"]() {
-                        return this.show ? "text" : "password";
-                    },
-                },
-                validate: function (that) {
-                    return that.fields.password_new.value.length < MIN_PASSWORD_LENGTH;
-                },
-            },
-            password_confirm: {
-                value: "",
-                error: false,
-                spread: {
-                    ["@input"]() {
-                        this.cleanErrors();
-                    },
-                    ["@paste"]() {
-                        this.cleanErrors();
-                    },
-                    [":class"]() {
-                        return this.fields.password_confirm.error ? "border-red-70" : "border-gray-40";
-                    },
-                    [":type"]() {
-                        return this.show ? "text" : "password";
-                    },
-                },
-                validate: function (that) {
-                    return that.fields.password_confirm.value.length < MIN_PASSWORD_LENGTH
-                        || that.fields.password_confirm.value !== that.fields.password_new.value;
-                },
-            },
-        },
+        fields: fields_r,
         submit: {
             ["@submit.prevent"]() {
                 this.$refs.submit_btn.focus();
@@ -183,14 +310,26 @@ function resetForm() {
             // > демо
             console.log(this.$el.action);
 
+            let that = this;
             setTimeout(function () {
-                document.location.assign("index.html");
-            }, 10200);
+                if (that.$el.name === 'reset_form') {
+                    document.location.assign("index.html");
+                }
+
+                if (that.$el.name === 'login_form') {
+                    if (that.fields.login.value !== that.fields.password.value) {
+                        that.fields.password.error = true;
+                        that.sending = false;
+                    } else {
+                        document.location.assign("index.html");
+                    }
+                }
+
+            }, 1020);
             // < демо
         },
     };
 }
-const MIN_PASSWORD_LENGTH = 8;
 //----------------------------------------------------------------------------------------------------------------------
 // пустые ссылки #
 document.addEventListener("click", function (e) {
