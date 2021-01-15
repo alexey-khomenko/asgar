@@ -29,3 +29,9 @@ function maxHeightClick() {
         }
     });
 }
+//----------------------------------------------------------------------------------------------------------------------
+// меню для гамбургера
+function menuInit() {
+    this.menu = JSON.parse(this.$el.dataset.dMenu);
+    this.$el.dataset.dMenu = null;
+}

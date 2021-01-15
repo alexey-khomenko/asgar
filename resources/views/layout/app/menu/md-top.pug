@@ -6,7 +6,7 @@ div(class="flex justify-between items-center")
         a(href=menu.link, class="flex justify-start items-center text-white hover:text-purple-20 focus:text-purple-20")
             include link/md-top
 
-    if menu.children[0] !== undefined
+    if menu.children
         - cls = 'flex justify-center items-center flex-shrink-0 h-6 sm:h-4 w-6 sm:w-4 sm:p-1 text-white hover:text-purple-20 focus:text-purple-20 transition-transform duration-500 ease-linear transform'
         button(type="button", class=cls, :class="show ? '-rotate-90' : 'rotate-90'", @click="show = !show")
             - svg = {width: 8, height: 12, name: 'chevron'}
@@ -16,7 +16,7 @@ div(class="flex justify-between items-center")
             - svg = {width: 8, height: 12, name: 'chevron'}
             include ../../../partials/pages/svg
 
-if menu.children[0] !== undefined
+if menu.children
     div(class="overflow-hidden transition-all ease-linear duration-300", x-ref="max_h_outer", style="max-height: 0")
         div(class="flex flex-col space-y-4 pt-4 pl-1 sm:pl-0", x-ref="max_h_inner")
             each submenu in menu.children
