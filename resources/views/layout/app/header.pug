@@ -209,7 +209,7 @@ header(x-data="{show: false}")
                     - svg = {width: 20, height: 20, name: 'cross'}
                     include ../../partials/pages/svg
             each menu in md_top
-                if menu.children[0] !== undefined
+                if menu.children
                     - cls = 'p-3 mb-1 rounded-xl sm:rounded-lg transition duration-300 ease-linear'
                     div(class=cls, :class="show ? 'bg-purple-60 shadow-2xl' : 'bg-transparent shadow-none'", x-data="maxHeightData()", x-init="maxHeightClick", x-spread="maxHeightResize")
                         include menu/md-top
