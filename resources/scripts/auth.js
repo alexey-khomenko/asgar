@@ -1,8 +1,8 @@
 //----------------------------------------------------------------------------------------------------------------------
 // универсальная форма
-const MIN_PASSWORD_LENGTH = 8;
-
 function authForm() {
+    const MIN_PASSWORD_LENGTH = 8;
+
     const login_form = {
         login: {
             value: "",
