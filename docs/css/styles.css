@@ -71771,7 +71771,7 @@ video {
 
   font-weight: 100;
 
-  src: local(""), url(/fonts/Lato-Hairline.woff2?210b9b5a4c5afe6094b88aa81574579b) format("woff2"), url(/fonts/Lato-Hairline.woff?143e7e23c054f414a3c23e3ba1a10016) format("woff");
+  src: local(""), url(../fonts/Lato-Hairline.woff2?210b9b5a4c5afe6094b88aa81574579b) format("woff2"), url(../fonts/Lato-Hairline.woff?143e7e23c054f414a3c23e3ba1a10016) format("woff");
 
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
@@ -71785,7 +71785,7 @@ video {
 
   font-weight: 200;
 
-  src: local(""), url(/fonts/Lato-Thin.woff2?a74ce2f4c041f5713525e7974ebdda4f) format("woff2"), url(/fonts/Lato-Thin.woff?843d13ef4b7c595ba9600d0a62e09997) format("woff");
+  src: local(""), url(../fonts/Lato-Thin.woff2?a74ce2f4c041f5713525e7974ebdda4f) format("woff2"), url(../fonts/Lato-Thin.woff?843d13ef4b7c595ba9600d0a62e09997) format("woff");
 }
 
 /* lato-300 */
@@ -71797,7 +71797,7 @@ video {
 
   font-weight: 300;
 
-  src: local(""), url(/fonts/Lato-Light.woff2?5357d51c1d039c0571e273186abb4315) format("woff2"), url(/fonts/Lato-Light.woff?2eb5e18449a7f1e69950deb0e0979fa0) format("woff");
+  src: local(""), url(../fonts/Lato-Light.woff2?5357d51c1d039c0571e273186abb4315) format("woff2"), url(../fonts/Lato-Light.woff?2eb5e18449a7f1e69950deb0e0979fa0) format("woff");
 }
 
 /* lato-400 - latin */
@@ -71809,7 +71809,7 @@ video {
 
   font-weight: 400;
 
-  src: local(""), url(/fonts/Lato-Regular.woff2?bb882f4771ef3a86e3a10e6c421d58d4) format("woff2"), url(/fonts/Lato-Regular.woff?39517281aedab52a4e3d76d5036c57cb) format("woff");
+  src: local(""), url(../fonts/Lato-Regular.woff2?bb882f4771ef3a86e3a10e6c421d58d4) format("woff2"), url(../fonts/Lato-Regular.woff?39517281aedab52a4e3d76d5036c57cb) format("woff");
 }
 
 /* lato-500 */
@@ -71821,7 +71821,7 @@ video {
 
   font-weight: 500;
 
-  src: local(""), url(/fonts/Lato-Medium.woff2?c0db01b37009447f359cfd26dee1ec2e) format("woff2"), url(/fonts/Lato-Medium.woff?253a82031e4f738465943818ad761073) format("woff");
+  src: local(""), url(../fonts/Lato-Medium.woff2?c0db01b37009447f359cfd26dee1ec2e) format("woff2"), url(../fonts/Lato-Medium.woff?253a82031e4f738465943818ad761073) format("woff");
 }
 
 /* lato-600 */
@@ -71833,7 +71833,7 @@ video {
 
   font-weight: 600;
 
-  src: local(""), url(/fonts/Lato-Semibold.woff2?77b3893e4f567489465867bb6cb48bf3) format("woff2"), url(/fonts/Lato-Semibold.woff?25a50b9ffcd8d28ae81a2850fd50cbb9) format("woff");
+  src: local(""), url(../fonts/Lato-Semibold.woff2?77b3893e4f567489465867bb6cb48bf3) format("woff2"), url(../fonts/Lato-Semibold.woff?25a50b9ffcd8d28ae81a2850fd50cbb9) format("woff");
 }
 
 /* lato-700 */
@@ -71845,7 +71845,7 @@ video {
 
   font-weight: 700;
 
-  src: local(""), url(/fonts/Lato-Bold.woff2?35d7024f03f8d7aea7ae6f88c3ac6463) format("woff2"), url(/fonts/Lato-Bold.woff?0e44822de267e4f03deee8c2c520f614) format("woff");
+  src: local(""), url(../fonts/Lato-Bold.woff2?35d7024f03f8d7aea7ae6f88c3ac6463) format("woff2"), url(../fonts/Lato-Bold.woff?0e44822de267e4f03deee8c2c520f614) format("woff");
 }
 
 /* lato-800 */
@@ -71857,7 +71857,7 @@ video {
 
   font-weight: 800;
 
-  src: local(""), url(/fonts/Lato-Heavy.woff2?7f83de92c00058dcd8298807b74ae3b7) format("woff2"), url(/fonts/Lato-Heavy.woff?0246a449f9ba982bdb06226170278450) format("woff");
+  src: local(""), url(../fonts/Lato-Heavy.woff2?7f83de92c00058dcd8298807b74ae3b7) format("woff2"), url(../fonts/Lato-Heavy.woff?0246a449f9ba982bdb06226170278450) format("woff");
 }
 
 /* lato-900 */
@@ -71869,7 +71869,7 @@ video {
 
   font-weight: 900;
 
-  src: local(""), url(/fonts/Lato-Black.woff2?812dc2ee7f689a3aeaba77d9bd819e4d) format("woff2"), url(/fonts/Lato-Black.woff?adce656f82557190038ed6096a6463cc) format("woff");
+  src: local(""), url(../fonts/Lato-Black.woff2?812dc2ee7f689a3aeaba77d9bd819e4d) format("woff2"), url(../fonts/Lato-Black.woff?adce656f82557190038ed6096a6463cc) format("woff");
 }
 
 * {
