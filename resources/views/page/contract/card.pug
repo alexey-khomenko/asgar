@@ -2,7 +2,7 @@ div(x-data="maxHeightData()", x-init="maxHeightClick", x-spread="maxHeightResize
     div(class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2")
         div(class="flex justify-between items-center space-x-1")
             div(class="flex justify-start lg:justify-between items-center flex-grow space-x-2")
-                button(type="button", class="text-base md:text-lg sm:text-sm text-black leading-tight font-bold", @click="show = !show")
+                button(type="button", class="text-left text-base md:text-lg sm:text-sm text-black leading-tight font-bold", @click="show = !show")
                     | #{card.title}
                 include badge
             - cls = 'flex justify-center items-center flex-shrink-0 w-5 sm:w-4 h-5 sm:h-4 text-gray-80 hover:text-purple-40 focus:text-purple-40 transition-transform duration-500 ease-linear transform'
