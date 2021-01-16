@@ -5,7 +5,9 @@ document.addEventListener("click", function (e) {
 });
 //----------------------------------------------------------------------------------------------------------------------
 // раскрывающиеся по высоте блоки
-function maxHeightData() {
+export function maxHeightData() {
+    console.log('maxHeightData');
+
     return {
         show: false,
         maxHeightResize: {
@@ -17,15 +19,14 @@ function maxHeightData() {
                 }
             },
         },
-    };
-}
-
-function maxHeightClick() {
-    this.$watch("show", value => {
-        if (value) {
-            this.$refs.max_h_outer.style.maxHeight = this.$refs.max_h_inner.clientHeight + "px";
-        } else {
-            this.$refs.max_h_outer.style.maxHeight = "0";
+        maxHeightClick: function () {
+            this.$watch("show", value => {
+                if (value) {
+                    this.$refs.max_h_outer.style.maxHeight = this.$refs.max_h_inner.clientHeight + "px";
+                } else {
+                    this.$refs.max_h_outer.style.maxHeight = "0";
+                }
+            });
         }
-    });
+    };
 }

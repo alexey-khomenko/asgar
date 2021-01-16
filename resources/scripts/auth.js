@@ -1,6 +1,6 @@
 //----------------------------------------------------------------------------------------------------------------------
 // универсальная форма
-function authForm() {
+export function authForm() {
     const MIN_PASSWORD_LENGTH = 8;
 
     const login_form = {
