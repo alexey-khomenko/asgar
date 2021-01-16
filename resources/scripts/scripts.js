@@ -6,8 +6,6 @@ document.addEventListener("click", function (e) {
 //----------------------------------------------------------------------------------------------------------------------
 // раскрывающиеся по высоте блоки
 export function maxHeightData() {
-    console.log('maxHeightData');
-
     return {
         show: false,
         maxHeightResize: {

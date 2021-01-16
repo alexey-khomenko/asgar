@@ -71771,7 +71771,7 @@ video {
 
   font-weight: 100;
 
-  src: local(""), url(/fonts/Lato-Hairline.woff2?210b9b5a4c5afe6094b88aa81574579b) format("woff2"), url(/fonts/Lato-Hairline.woff?143e7e23c054f414a3c23e3ba1a10016) format("woff");
+  src: local(""), url(/fonts/Lato-Hairline.woff2) format("woff2"), url(/fonts/Lato-Hairline.woff?143e7e23c054f414a3c23e3ba1a10016) format("woff");
 
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }

@@ -2142,7 +2142,6 @@ document.addEventListener("click", function (e) {
 // раскрывающиеся по высоте блоки
 
 function maxHeightData() {
-  console.log('maxHeightData');
   return {
     show: false,
     maxHeightResize: _defineProperty({}, "@resize.window", function resizeWindow() {
