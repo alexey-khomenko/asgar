@@ -10,13 +10,23 @@ div(x-data="maxHeightData()", x-init="maxHeightClick", x-spread="maxHeightResize
                 include ../../partials/pages/svg
 
         div(class="overflow-hidden transition-all ease-linear duration-300", x-ref="max_h_outer", style="max-height: 0")
-            div(class="flex xs:flex-col justify-between lg:justify-start md:justify-between items-center space-x-4 xs:space-x-0 xs:space-y-4 pt-4", x-ref="max_h_inner")
-                a(href="tel:+" + card.phone.replace(/\D+/g,""), class="flex justify-center items-center space-x-1 text-purple-80 hover:text-purple-40 focus:text-purple-40")
-                    span(class="w-4 sm:w-3 h-4 sm:h-3 p-px")
-                        - svg = {width: 16, height: 16, name: 'contacts'}
-                        include ../../partials/pages/svg
-                    span(class="text-lg md:text-xl sm:text-base leading-tight")
-                        | #{card.phone}
-                a(href=card.link, class="flex justify-center items-center h-8 md:h-12 sm:h-8 xs:w-48 px-6 rounded-lg text-white bg-purple-80 hover:bg-purple-40 focus:bg-purple-40")
-                    span(class="font-medium text-sm md:text-lg sm:text-sm")
-                        | Заказать
+            div(x-ref="max_h_inner")
+                div(class="flex xs:flex-col justify-between lg:justify-start md:justify-between items-center space-x-4 xs:space-x-0 xs:space-y-4 pt-4")
+                    a(href="tel:+" + card.phone.replace(/\D+/g,""), class="flex justify-center items-center space-x-1 text-purple-80 hover:text-purple-40 focus:text-purple-40")
+                        span(class="w-4 sm:w-3 h-4 sm:h-3 p-px")
+                            - svg = {width: 16, height: 16, name: 'contacts'}
+                            include ../../partials/pages/svg
+                        span(class="text-lg md:text-xl sm:text-base leading-tight")
+                            | #{card.phone}
+                    a(href=card.link, class="flex justify-center items-center h-8 md:h-12 sm:h-8 xs:w-48 px-6 rounded-lg text-white bg-purple-80 hover:bg-purple-40 focus:bg-purple-40")
+                        span(class="font-medium text-sm md:text-lg sm:text-sm")
+                            | Заказать
+
+                if card.email
+                    div(class="flex justify-start xs:justify-center pt-4")
+                        a(href="mailto:" + card.email, class="flex justify-center items-center space-x-1 text-purple-80 hover:text-purple-40 focus:text-purple-40")
+                            span(class="w-4 sm:w-3 h-4 sm:h-3 p-px mt-1")
+                                - svg = {width: 16, height: 13, name: 'email'}
+                                include ../../partials/pages/svg
+                            span(class="text-lg md:text-xl sm:text-base leading-tight")
+                                | #{card.email}
