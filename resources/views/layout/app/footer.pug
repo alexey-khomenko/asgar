@@ -1,55 +1,56 @@
 -
     md_bottom = {
-        events: {
-            link: 'events.html',
-            text: 'История',
-            svg: {
-                width: '29',
-                height: '25',
-                name: 'events'
-            }
-        },
-        report: {
-            link: 'report.html',
-            text: 'Отчёт',
-            svg: {
-                width: '27',
-                height: '25',
-                name: 'report'
-            }
-        },
-        act: {
-            link: 'act.html',
-            text: 'Акт',
-            svg: {
-                width: '22',
-                height: '28',
-                name: 'act'
-            }
-        },
-        cameras: {
-            link: 'cameras.html',
-            text: 'Камеры',
-            svg: {
-                width: '28',
-                height: '21',
-                name: 'cameras'
-            }
-        },
-        control: {
-            link: 'control.html',
-            text: 'Управление',
-            svg: {
-                width: '22',
-                height: '32',
-                name: 'control'
-            }
-        }
+        // events: {
+        //     link: 'events.html',
+        //     text: 'История',
+        //     svg: {
+        //         width: '29',
+        //         height: '25',
+        //         name: 'events'
+        //     }
+        // },
+        // report: {
+        //     link: 'report.html',
+        //     text: 'Отчёт',
+        //     svg: {
+        //         width: '27',
+        //         height: '25',
+        //         name: 'report'
+        //     }
+        // },
+        // act: {
+        //     link: 'act.html',
+        //     text: 'Акт',
+        //     svg: {
+        //         width: '22',
+        //         height: '28',
+        //         name: 'act'
+        //     }
+        // },
+        // cameras: {
+        //     link: 'cameras.html',
+        //     text: 'Камеры',
+        //     svg: {
+        //         width: '28',
+        //         height: '21',
+        //         name: 'cameras'
+        //     }
+        // },
+        // control: {
+        //     link: 'control.html',
+        //     text: 'Управление',
+        //     svg: {
+        //         width: '22',
+        //         height: '32',
+        //         name: 'control'
+        //     }
+        // }
     }
 footer
     div(class="block md:hidden h-10")
-    div(class="bg-gray-20 shadow-lg transform rotate-180 hidden md:block mt-8")
-        div(class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3", data-c-container)
-            div(class="grid grid-cols-5 transform rotate-180 h-20 sm:h-16")
-                each menu in md_bottom
-                    include menu/md-bottom
+    if Object.keys(md_bottom).length
+        div(class="bg-gray-20 shadow-lg transform rotate-180 hidden md:block mt-8")
+            div(class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3", data-c-container)
+                div(class="grid grid-cols-5 transform rotate-180 h-20 sm:h-16")
+                    each menu in md_bottom
+                        include menu/md-bottom
