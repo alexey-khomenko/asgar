@@ -130,32 +130,28 @@ export function authForm() {
                 this.fields[field]['error'] = this.fields[field]['validate'](this);
             }
         },
-        send: function () {
+        send: async function () {
             for (let field in this.fields) {
                 if (this.fields[field]['error']) return;
             }
 
+            const action = (this.$el.name).split("_")[0];
+            let fields = {};
+            for (let field in this.fields) {
+                fields[field] = this.fields[field]['value'];
+            }
+
+            let data = new FormData();
+            data.append('action', action);
+            data.append('fields', JSON.stringify(fields));
+
             this.sending = true;
+            const response = await fetch(this.$el.action, {method: 'POST', body: data});
+            this.sending = false;
 
-            let data = new FormData(this.$el);
+            const res = await response.json();
 
-            // > демо
-            console.log(this.$el.action);
-
-            setTimeout(() => {
-                if (this.$el.name === 'reset_form') {
-                    document.location.assign("index.html");
-                }
-                if (this.$el.name === 'login_form') {
-                    if (this.fields.login.value !== this.fields.password.value) {
-                        this.fields.password.error = true;
-                        this.sending = false;
-                    } else {
-                        document.location.assign("index.html");
-                    }
-                }
-            }, 1020);
-            // < демо
-        },
+            console.log(res);
+        }
     };
 }
