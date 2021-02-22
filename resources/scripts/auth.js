@@ -149,9 +149,15 @@ export function authForm() {
             const response = await fetch(this.$el.action, {method: 'POST', body: data});
             this.sending = false;
 
-            const res = await response.json();
+            if (response.status === 200) {
+                const res = await response.json();
 
-            console.log(res);
+                if (Object.keys(res).length) {
+                    console.log(res);
+                } else {
+                    location.reload();
+                }
+            }
         }
     };
 }
