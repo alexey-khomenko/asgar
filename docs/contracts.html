@@ -28,26 +28,28 @@
   <body class="antialiased">
     <div class="fixed z-0 top-0 right-0 bottom-0 left-0 overflow-y-auto overflow-x-hidden flex flex-col justify-between bg-white">
       <header x-data="{show: false}">
-        <div class="bg-purple-80 md:hidden">
-          <div class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex justify-between" data-c-container>
-            <div class="flex justify-start items-center space-x-8"><span class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-pink cursor-default"><span class="flex justify-center items-center text-purple-20 h-4 w-4">
-                  <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 25 29">
-                    <path fill="currentColor" d="M2.73887 0.0471191C1.25579 0.0471191 0.0666504 1.23626 0.0666504 2.71934V24.0971C0.0666504 24.8058 0.348187 25.4855 0.849326 25.9867C1.35046 26.4878 2.03016 26.7693 2.73887 26.7693H8.08332V24.2174L10.8758 21.4249H2.73887V18.7527H13.548L16.2202 16.0805H2.73887V13.4082H18.8925L21.4444 10.8563V8.06379L13.4278 0.0471191H2.73887ZM12.0917 2.05129L19.4403 9.3999H12.0917V2.05129ZM21.6448 14.7443C21.4444 14.7443 21.2574 14.8111 21.1104 14.9581L19.7476 16.321L22.54 19.1001L23.9029 17.7506C24.1835 17.4566 24.1835 16.9756 23.9029 16.6951L22.1659 14.9581C22.019 14.8111 21.8319 14.7443 21.6448 14.7443ZM18.9593 17.1093L10.7555 25.3263V28.1055H13.5347L21.7517 19.8884L18.9593 17.1093Z"></path>
-                  </svg></span><span class="font-medium text-xs leading-4 mx-1">Договоры</span><span class="flex text-xs h-4 min-w-4 mr-px"><span class="flex justify-center items-center px-1 rounded-full bg-pink flex-grow"><span class="font-medium leading-tight">2</span></span></span></span><a class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-transparent hover:text-purple-20 focus:text-purple-20" href="contacts.html"><span class="flex justify-center items-center text-purple-20 h-4 w-4">
-                  <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 25 25">
-                    <path fill="currentColor" d="M5.56731 10.6278C7.49131 14.409 10.5911 17.5088 14.3723 19.4328L17.3117 16.4933C17.6858 16.1192 18.2069 16.0123 18.6746 16.1593C20.171 16.6536 21.7743 16.9209 23.4445 16.9209C23.7988 16.9209 24.1387 17.0616 24.3893 17.3122C24.6398 17.5628 24.7806 17.9026 24.7806 18.257V22.9334C24.7806 23.2877 24.6398 23.6276 24.3893 23.8781C24.1387 24.1287 23.7988 24.2695 23.4445 24.2695C17.4204 24.2695 11.643 21.8764 7.38333 17.6167C3.12365 13.3571 0.730591 7.57969 0.730591 1.55559C0.730591 1.20123 0.871359 0.86139 1.12193 0.61082C1.3725 0.360251 1.71234 0.219482 2.0667 0.219482H6.74309C7.09745 0.219482 7.43729 0.360251 7.68786 0.61082C7.93843 0.86139 8.0792 1.20123 8.0792 1.55559C8.0792 3.22573 8.34642 4.82907 8.84079 6.32551C8.98776 6.79315 8.88087 7.31423 8.50676 7.68834L5.56731 10.6278Z"></path>
-                  </svg></span><span class="font-medium text-xs leading-4 mx-1">Контакты</span></a>
-            </div>
-            <div class="flex justify-start items-center space-x-8"><a class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-transparent hover:text-purple-20 focus:text-purple-20" href="login.html"><span class="flex justify-center items-center text-purple-20 h-4 w-4">
-                  <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 25 25">
-                    <path fill="currentColor" d="M22.1084 0.680664H3.40281C1.91973 0.680664 0.730591 1.8698 0.730591 3.35289V8.69733H3.40281V3.35289H22.1084V22.0584H3.40281V16.714H0.730591V22.0584C0.730591 22.7672 1.01213 23.4468 1.51327 23.948C2.01441 24.4491 2.6941 24.7307 3.40281 24.7307H22.1084C22.8171 24.7307 23.4968 24.4491 23.9979 23.948C24.4991 23.4468 24.7806 22.7672 24.7806 22.0584V3.35289C24.7806 1.8698 23.5781 0.680664 22.1084 0.680664ZM10.1903 17.4889L12.0875 19.3862L18.7681 12.7057L12.0875 6.02511L10.1903 7.90902L13.6508 11.3696H0.730591V14.0418H13.6508L10.1903 17.4889Z"></path>
-                  </svg></span><span class="font-medium text-xs leading-4 mx-1">Выход</span></a>
+        <div class="md:hidden shadow-lg mb-5">
+          <div class="bg-purple-80">
+            <div class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex justify-between" data-c-container>
+              <div class="flex justify-start items-center space-x-8"><span class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-pink cursor-default"><span class="flex justify-center items-center text-purple-20 h-4 w-4">
+                    <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="13" height="15" viewBox="0 0 25 29">
+                      <path fill="currentColor" d="M2.73887 0.0471191C1.25579 0.0471191 0.0666504 1.23626 0.0666504 2.71934V24.0971C0.0666504 24.8058 0.348187 25.4855 0.849326 25.9867C1.35046 26.4878 2.03016 26.7693 2.73887 26.7693H8.08332V24.2174L10.8758 21.4249H2.73887V18.7527H13.548L16.2202 16.0805H2.73887V13.4082H18.8925L21.4444 10.8563V8.06379L13.4278 0.0471191H2.73887ZM12.0917 2.05129L19.4403 9.3999H12.0917V2.05129ZM21.6448 14.7443C21.4444 14.7443 21.2574 14.8111 21.1104 14.9581L19.7476 16.321L22.54 19.1001L23.9029 17.7506C24.1835 17.4566 24.1835 16.9756 23.9029 16.6951L22.1659 14.9581C22.019 14.8111 21.8319 14.7443 21.6448 14.7443ZM18.9593 17.1093L10.7555 25.3263V28.1055H13.5347L21.7517 19.8884L18.9593 17.1093Z"></path>
+                    </svg></span><span class="font-medium text-xs leading-4 mx-1">Договоры</span><span class="flex text-xs h-4 min-w-4 mr-px"><span class="flex justify-center items-center px-1 rounded-full bg-pink flex-grow"><span class="font-medium leading-tight">2</span></span></span></span><a class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-transparent hover:text-purple-20 focus:text-purple-20" href="contacts.html"><span class="flex justify-center items-center text-purple-20 h-4 w-4">
+                    <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 25 25">
+                      <path fill="currentColor" d="M5.56731 10.6278C7.49131 14.409 10.5911 17.5088 14.3723 19.4328L17.3117 16.4933C17.6858 16.1192 18.2069 16.0123 18.6746 16.1593C20.171 16.6536 21.7743 16.9209 23.4445 16.9209C23.7988 16.9209 24.1387 17.0616 24.3893 17.3122C24.6398 17.5628 24.7806 17.9026 24.7806 18.257V22.9334C24.7806 23.2877 24.6398 23.6276 24.3893 23.8781C24.1387 24.1287 23.7988 24.2695 23.4445 24.2695C17.4204 24.2695 11.643 21.8764 7.38333 17.6167C3.12365 13.3571 0.730591 7.57969 0.730591 1.55559C0.730591 1.20123 0.871359 0.86139 1.12193 0.61082C1.3725 0.360251 1.71234 0.219482 2.0667 0.219482H6.74309C7.09745 0.219482 7.43729 0.360251 7.68786 0.61082C7.93843 0.86139 8.0792 1.20123 8.0792 1.55559C8.0792 3.22573 8.34642 4.82907 8.84079 6.32551C8.98776 6.79315 8.88087 7.31423 8.50676 7.68834L5.56731 10.6278Z"></path>
+                    </svg></span><span class="font-medium text-xs leading-4 mx-1">Контакты</span></a>
+              </div>
+              <div class="flex justify-start items-center space-x-8"><a class="flex justify-start items-center h-12 pt-px text-white border-b-2 border-transparent hover:text-purple-20 focus:text-purple-20" href="login.html"><span class="flex justify-center items-center text-purple-20 h-4 w-4">
+                    <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 25 25">
+                      <path fill="currentColor" d="M22.1084 0.680664H3.40281C1.91973 0.680664 0.730591 1.8698 0.730591 3.35289V8.69733H3.40281V3.35289H22.1084V22.0584H3.40281V16.714H0.730591V22.0584C0.730591 22.7672 1.01213 23.4468 1.51327 23.948C2.01441 24.4491 2.6941 24.7307 3.40281 24.7307H22.1084C22.8171 24.7307 23.4968 24.4491 23.9979 23.948C24.4991 23.4468 24.7806 22.7672 24.7806 22.0584V3.35289C24.7806 1.8698 23.5781 0.680664 22.1084 0.680664ZM10.1903 17.4889L12.0875 19.3862L18.7681 12.7057L12.0875 6.02511L10.1903 7.90902L13.6508 11.3696H0.730591V14.0418H13.6508L10.1903 17.4889Z"></path>
+                    </svg></span><span class="font-medium text-xs leading-4 mx-1">Выход</span></a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="bg-white md:hidden shadow-lg mb-5">
-          <div class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3" data-c-container>
-            <div class="flex justify-start items-center space-x-5">
+          <div class="bg-white">
+            <div class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3" data-c-container>
+              <div class="flex justify-start items-center space-x-5">
+              </div>
             </div>
           </div>
         </div>

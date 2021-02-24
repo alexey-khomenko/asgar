@@ -1,120 +1,122 @@
 header(x-data="{show: false}")
-    -
-        lg_top = {
-            left: {
-                // index: {
-                //     link: 'index.html',
-                //     text: 'Главная',
-                //     number: 0,
-                //     svg: {
-                //         width: '14',
-                //         height: '12',
-                //         name: 'home'
-                //     }
-                // },
-                contracts: {
-                    link: 'contracts.html',
-                    text: 'Договоры',
-                    number: 2,
-                    svg: {
-                        width: '13',
-                        height: '15',
-                        name: 'contracts'
+    div(class="md:hidden shadow-lg mb-5")
+        -
+            lg_top = {
+                left: {
+                    // index: {
+                    //     link: 'index.html',
+                    //     text: 'Главная',
+                    //     number: 0,
+                    //     svg: {
+                    //         width: '14',
+                    //         height: '12',
+                    //         name: 'home'
+                    //     }
+                    // },
+                    contracts: {
+                        link: 'contracts.html',
+                        text: 'Договоры',
+                        number: 2,
+                        svg: {
+                            width: '13',
+                            height: '15',
+                            name: 'contracts'
+                        }
+                    },
+                    // settings: {
+                    //     link: 'settings.html',
+                    //     text: 'Настройки',
+                    //     number: 0,
+                    //     svg: {
+                    //         width: '14',
+                    //         height: '14',
+                    //         name: 'settings'
+                    //     }
+                    // },
+                    contacts: {
+                        link: 'contacts.html',
+                        text: 'Контакты',
+                        number: 0,
+                        svg: {
+                            width: '12',
+                            height: '12',
+                            name: 'contacts'
+                        }
                     }
                 },
-                // settings: {
-                //     link: 'settings.html',
-                //     text: 'Настройки',
-                //     number: 0,
-                //     svg: {
-                //         width: '14',
-                //         height: '14',
-                //         name: 'settings'
-                //     }
-                // },
-                contacts: {
-                    link: 'contacts.html',
-                    text: 'Контакты',
-                    number: 0,
-                    svg: {
-                        width: '12',
-                        height: '12',
-                        name: 'contacts'
-                    }
-                }
-            },
-            right: {
-                login: {
-                    link: 'login.html',
-                    text: 'Выход',
-                    number: 0,
-                    svg: {
-                        width: '12',
-                        height: '12',
-                        name: 'logout'
+                right: {
+                    login: {
+                        link: 'login.html',
+                        text: 'Выход',
+                        number: 0,
+                        svg: {
+                            width: '12',
+                            height: '12',
+                            name: 'logout'
+                        }
                     }
                 }
             }
-        }
-    div(class="bg-purple-80 md:hidden")
-        div(class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex justify-between", data-c-container)
-            each edge in lg_top
-                div(class="flex justify-start items-center space-x-8")
-                    each menu in edge
-                        include menu/lg-top
-    -
-        lg_bottom = {
-            // events: {
-            //     link: 'events.html',
-            //     text: 'История',
-            //     svg: {
-            //         width: '15',
-            //         height: '12',
-            //         name: 'events'
-            //     }
-            // },
-            // report: {
-            //     link: 'report.html',
-            //     text: 'Отчёт',
-            //     svg: {
-            //         width: '14',
-            //         height: '12',
-            //         name: 'report'
-            //     }
-            // },
-            // act: {
-            //     link: 'act.html',
-            //     text: 'Акт',
-            //     svg: {
-            //         width: '11',
-            //         height: '14',
-            //         name: 'act'
-            //     }
-            // },
-            // cameras: {
-            //     link: 'cameras.html',
-            //     text: 'Камеры',
-            //     svg: {
-            //         width: '14',
-            //         height: '11',
-            //         name: 'cameras'
-            //     }
-            // },
-            // control: {
-            //     link: 'control.html',
-            //     text: 'Управление',
-            //     svg: {
-            //         width: '11',
-            //         height: '16',
-            //         name: 'control'
-            //     }
-            // }
-        }
-    div(class="bg-white md:hidden shadow-lg mb-5")
-        div(class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3", data-c-container)
-            div(class="flex justify-start items-center space-x-5")
-                each menu in lg_bottom
-                    include menu/lg-bottom
+        div(class="bg-purple-80")
+            div(class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex justify-between", data-c-container)
+                each edge in lg_top
+                    div(class="flex justify-start items-center space-x-8")
+                        each menu in edge
+                            include menu/lg-top
+        -
+            lg_bottom = {
+                // events: {
+                //     link: 'events.html',
+                //     text: 'История',
+                //     svg: {
+                //         width: '15',
+                //         height: '12',
+                //         name: 'events'
+                //     }
+                // },
+                // report: {
+                //     link: 'report.html',
+                //     text: 'Отчёт',
+                //     svg: {
+                //         width: '14',
+                //         height: '12',
+                //         name: 'report'
+                //     }
+                // },
+                // act: {
+                //     link: 'act.html',
+                //     text: 'Акт',
+                //     svg: {
+                //         width: '11',
+                //         height: '14',
+                //         name: 'act'
+                //     }
+                // },
+                // cameras: {
+                //     link: 'cameras.html',
+                //     text: 'Камеры',
+                //     svg: {
+                //         width: '14',
+                //         height: '11',
+                //         name: 'cameras'
+                //     }
+                // },
+                // control: {
+                //     link: 'control.html',
+                //     text: 'Управление',
+                //     svg: {
+                //         width: '11',
+                //         height: '16',
+                //         name: 'control'
+                //     }
+                // }
+            }
+        div(class="bg-white")
+            div(class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3", data-c-container)
+                div(class="flex justify-start items-center space-x-5")
+                    each menu in lg_bottom
+                        include menu/lg-bottom
+
     //- гамбургер
     div(class="bg-purple-80 hidden md:block px-6 sm:px-5 xs:px-3")
         div(class="flex justify-between items-center h-24 sm:h-16 py-2")
