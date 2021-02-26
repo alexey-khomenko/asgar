@@ -13,6 +13,7 @@ if Object.keys(confidants).length > 0
                     include ../../partials/pages/svg
 
             div(class="overflow-hidden transition-all ease-linear duration-300", x-ref="max_h_outer", style="max-height: 0")
-                div(class="flex justify-start items-center pt-4", x-ref="max_h_inner")
-                    span(class="text-xs md:text-base sm:text-xs leading-tight text-gray-60")
-                        | &hellip;
+                div(class="block pt-3", x-ref="max_h_inner")
+                    each confidant in confidants
+                        p(class="text-xs md:text-base sm:text-xs leading-tight text-gray-60")
+                            | #{confidant}
