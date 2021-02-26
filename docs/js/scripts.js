@@ -2163,7 +2163,14 @@ function maxHeightData() {
       });
     }
   };
-}
+} //----------------------------------------------------------------------------------------------------------------------
+// заказ звонка
+
+document.addEventListener("click", function (e) {
+  if (!e.target.dataset.dContact && !e.target.closest("[data-d-contact]")) return true;
+  var contact = e.target.dataset.dContact || e.target.closest("[data-d-contact]").dataset.dContact;
+  console.log(contact);
+});
 
 /***/ }),
 
