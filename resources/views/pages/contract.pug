@@ -15,42 +15,33 @@ block data
         }
 
 block main
-        - console_number = 657867643543
-        include ../page/contract/console
-        - address = 'пр. Московский 172/12'
-        - debt = 320.15
-        - balance = 320.15
-        - sum = 320.15
-        - pay = '#'
-        include ../page/contract/info
-        -
-            cards = {
-                0: {
-                    title: 'Подписант договора',
-                    badge: {},
-                    text: '&hellip;'
-                },
-                1: {
-                    title: 'Доверенные лица',
-                    badge: {},
-                    text: '&hellip;'
-                },
-                2: {
-                    title: 'Оборудование в аренде',
-                    badge: {
-                        type: 'number',
-                        number: 2
-                    },
-                    text: '&hellip;'
-                },
-                3: {
-                    title: 'Статус охранной сигрализации',
-                    badge: {
-                        type: 'status',
-                        status: true,
-                        text: 'Активна'
-                    },
-                    text: '&hellip;'
-                }
-            }
-        include ../page/contract/group
+    - console_number = 657867643543
+    include ../page/contract/console
+    - address = 'пр. Московский 172/12'
+    - debt = 320.15
+    - balance = 320.15
+    - sum = 320.15
+    - pay = '#'
+    include ../page/contract/info
+    -
+        signers = {
+            0: 'Иванов Иван Иванович'
+        }
+    -
+        confidants = {
+            0: 'Иванов Иван Иванович',
+            1: 'Петров Пётр Петрович',
+            2: 'Сидоров Сидор Сидорович Пётр Петрович',
+        }
+    -
+        equipments = {
+            0: '.',
+            1: '..',
+            2: '...'
+        }
+    -
+        alarm = {
+            status: true,
+            text: 'Активна'
+        }
+    include ../page/contract/group
