@@ -24,33 +24,24 @@ block main
         - pay = '#'
         include ../page/contract/info
         -
-            cards = {
-                0: {
-                    title: 'Подписант договора',
-                    badge: {},
-                    text: '&hellip;'
-                },
-                1: {
-                    title: 'Доверенные лица',
-                    badge: {},
-                    text: '&hellip;'
-                },
-                2: {
-                    title: 'Оборудование в аренде',
-                    badge: {
-                        type: 'number',
-                        number: 2
-                    },
-                    text: '&hellip;'
-                },
-                3: {
-                    title: 'Статус охранной сигрализации',
-                    badge: {
-                        type: 'status',
-                        status: true,
-                        text: 'Активна'
-                    },
-                    text: '&hellip;'
-                }
+            signers = {
+                0: 'Иванов Иван Иванович'
+            }
+        -
+            confidants = {
+                0: 'Иванов Иван Иванович',
+                1: 'Петров Пётр Петрович',
+                2: 'Сидоров Сидор Сидорович Пётр Петрович',
+            }
+        -
+            equipments = {
+                0: '.',
+                1: '..',
+                2: '...'
+            }
+        -
+            alarm = {
+                status: true,
+                text: 'Активна'
             }
         include ../page/contract/group

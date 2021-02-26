@@ -1,0 +1,11 @@
+div()
+    div(class="bg-gray-20 rounded-md flex-shrink-0 py-4 px-3 sm:px-2")
+        div(class="flex justify-between items-center space-x-1")
+            div(class="flex justify-start lg:justify-between items-center flex-grow space-x-2")
+                span(class="text-left text-base md:text-lg sm:text-sm text-black leading-tight font-bold")
+                    | Статус охранной сигрализации
+                - color = alarm.status ? ' bg-green-70' : ' bg-red-70'
+                span(class="flex text-sm sm:text-xs h-6 sm:h-5 min-w-6 sm:min-w-5 text-white flex-shrink-0")
+                    span(class="flex justify-center items-center px-2 rounded-full flex-grow" + color)
+                        span(class="font-medium leading-tight")
+                            | #{alarm.text}
