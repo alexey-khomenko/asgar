@@ -33,10 +33,25 @@ export function maxHeightData() {
 export function contactData() {
     return {
         show: true,
-        call: function (contact) {
+        call: async function (contact) {
             this.show = false;
 
-            console.log(contact);
+            const action = '/contacts/';
+            let fields = {contact: contact};
+
+            let data = new FormData();
+            data.append('action', action);
+            data.append('fields', JSON.stringify(fields));
+
+            this.sending = true;
+            const response = await fetch(this.$el.action, {method: 'POST', body: data});
+            this.sending = false;
+
+            if (response.status === 200) {
+                const res = await response.json();
+
+                if (Object.keys(res).length) console.log(res);
+            }
         }
     };
 }
