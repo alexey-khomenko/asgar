@@ -19,8 +19,8 @@ div(x-data="maxHeightData()", x-init="maxHeightClick", x-spread="maxHeightResize
                         span(class="text-lg md:text-xl sm:text-base leading-tight")
                             | #{card.phone}
                     if card.id > 0
-                        div(x-data="{show: true}")
-                            button(type="button", x-show="show", @click="show = false", data-d-contact=card.id, class="flex justify-center items-center h-8 md:h-12 sm:h-8 w-24 md:w-32 sm:w-24 xs:w-48 rounded-lg text-white bg-purple-80 hover:bg-purple-40 focus:bg-purple-40")
+                        div(x-data="contactData()")
+                            button(type="button", x-show="show", @click="call(" + card.id + ")", class="flex justify-center items-center h-8 md:h-12 sm:h-8 w-24 md:w-32 sm:w-24 xs:w-48 rounded-lg text-white bg-purple-80 hover:bg-purple-40 focus:bg-purple-40")
                                 span(class="font-medium text-sm md:text-lg sm:text-sm")
                                     | Заказать
                             span(class="flex justify-center items-center h-8 md:h-12 sm:h-8 w-24 md:w-32 sm:w-24 xs:w-48 rounded-lg text-white bg-green-70", x-show="!show", x-cloak)

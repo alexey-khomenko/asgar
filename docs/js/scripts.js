@@ -1968,6 +1968,8 @@ __webpack_require__.r(__webpack_exports__);
 
 window.maxHeightData = _scripts__WEBPACK_IMPORTED_MODULE_1__.maxHeightData;
 
+window.contactData = _scripts__WEBPACK_IMPORTED_MODULE_1__.contactData;
+
 window.authForm = _auth__WEBPACK_IMPORTED_MODULE_2__.authForm;
 
 /***/ }),
@@ -2130,7 +2132,8 @@ function authForm() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "maxHeightData": () => /* binding */ maxHeightData
+/* harmony export */   "maxHeightData": () => /* binding */ maxHeightData,
+/* harmony export */   "contactData": () => /* binding */ contactData
 /* harmony export */ });
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2166,11 +2169,15 @@ function maxHeightData() {
 } //----------------------------------------------------------------------------------------------------------------------
 // заказ звонка
 
-document.addEventListener("click", function (e) {
-  if (!e.target.dataset.dContact && !e.target.closest("[data-d-contact]")) return true;
-  var contact = e.target.dataset.dContact || e.target.closest("[data-d-contact]").dataset.dContact;
-  console.log(contact);
-});
+function contactData() {
+  return {
+    show: true,
+    call: function call(contact) {
+      this.show = false;
+      console.log(contact);
+    }
+  };
+}
 
 /***/ }),
 

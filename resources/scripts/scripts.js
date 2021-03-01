@@ -30,10 +30,13 @@ export function maxHeightData() {
 }
 //----------------------------------------------------------------------------------------------------------------------
 // заказ звонка
-document.addEventListener("click", function (e) {
-    if (!e.target.dataset.dContact && !e.target.closest(`[data-d-contact]`)) return true;
+export function contactData() {
+    return {
+        show: true,
+        call: function (contact) {
+            this.show = false;
 
-    const contact = e.target.dataset.dContact || e.target.closest(`[data-d-contact]`).dataset.dContact;
-
-    console.log(contact);
-});
+            console.log(contact);
+        }
+    };
+}
