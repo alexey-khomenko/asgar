@@ -1963,14 +1963,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(alpinejs__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _scripts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scripts */ "./resources/scripts/scripts.js");
-/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./auth */ "./resources/scripts/auth.js");
+/* harmony import */ var _contacts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contacts */ "./resources/scripts/contacts.js");
+/* harmony import */ var _auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth */ "./resources/scripts/auth.js");
 
 
 window.maxHeightData = _scripts__WEBPACK_IMPORTED_MODULE_1__.maxHeightData;
 
-window.contactData = _scripts__WEBPACK_IMPORTED_MODULE_1__.contactData;
+window.contactData = _contacts__WEBPACK_IMPORTED_MODULE_2__.contactData;
 
-window.authForm = _auth__WEBPACK_IMPORTED_MODULE_2__.authForm;
+window.authForm = _auth__WEBPACK_IMPORTED_MODULE_3__.authForm;
 
 /***/ }),
 
@@ -2123,6 +2124,31 @@ function authForm() {
 
 /***/ }),
 
+/***/ "./resources/scripts/contacts.js":
+/*!***************************************!*\
+  !*** ./resources/scripts/contacts.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "contactData": () => /* binding */ contactData
+/* harmony export */ });
+//----------------------------------------------------------------------------------------------------------------------
+// заказ звонка
+function contactData() {
+  return {
+    show: true,
+    call: function call(contact) {
+      this.show = false;
+      console.log(contact);
+    }
+  };
+}
+
+/***/ }),
+
 /***/ "./resources/scripts/scripts.js":
 /*!**************************************!*\
   !*** ./resources/scripts/scripts.js ***!
@@ -2132,8 +2158,7 @@ function authForm() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "maxHeightData": () => /* binding */ maxHeightData,
-/* harmony export */   "contactData": () => /* binding */ contactData
+/* harmony export */   "maxHeightData": () => /* binding */ maxHeightData
 /* harmony export */ });
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -2164,17 +2189,6 @@ function maxHeightData() {
           _this.$refs.max_h_outer.style.maxHeight = "0";
         }
       });
-    }
-  };
-} //----------------------------------------------------------------------------------------------------------------------
-// заказ звонка
-
-function contactData() {
-  return {
-    show: true,
-    call: function call(contact) {
-      this.show = false;
-      console.log(contact);
     }
   };
 }
