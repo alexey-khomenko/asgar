@@ -36,7 +36,7 @@ export function contactData() {
         call: async function (contact) {
             this.show = false;
 
-            const action = '/contacts/';
+            const action = 'call';
             let fields = {contact: contact};
 
             let data = new FormData();
@@ -44,7 +44,7 @@ export function contactData() {
             data.append('fields', JSON.stringify(fields));
 
             this.sending = true;
-            const response = await fetch(this.$el.action, {method: 'POST', body: data});
+            const response = await fetch('/contacts/', {method: 'POST', body: data});
             this.sending = false;
 
             if (response.status === 200) {
