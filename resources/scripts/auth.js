@@ -1,121 +1,65 @@
 //----------------------------------------------------------------------------------------------------------------------
 // универсальная форма
-export function authForm() {
+export function authData() {
+    IMask(document.querySelector("[name=login]"), {
+        mask: '+{38}(000)000-00-00'
+    });
+
     const MIN_PASSWORD_LENGTH = 8;
-
-    const login_form = {
-        login: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.cleanErrors();
-                },
-                ["@paste"]() {
-                    this.cleanErrors();
-                },
-                [":class"]() {
-                    return this.fields.login.error ? "border-red-70" : "border-gray-40";
-                },
-            },
-            validate: function (that) {
-                return that.fields.login.value.length === 0;
-            },
-        },
-        password: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.cleanErrors();
-                },
-                ["@paste"]() {
-                    this.cleanErrors();
-                },
-                [":class"]() {
-                    return this.fields.password.error ? "border-red-70" : "border-gray-40";
-                },
-                [":type"]() {
-                    return this.show ? "text" : "password";
-                },
-            },
-            validate: function (that) {
-                return that.fields.password.value.length < MIN_PASSWORD_LENGTH;
-            },
-        },
-    };
-
-    const reset_form = {
-        login: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.cleanErrors();
-                },
-                ["@paste"]() {
-                    this.cleanErrors();
-                },
-                [":class"]() {
-                    return this.fields.login.error ? "border-red-70" : "border-gray-40";
-                },
-            },
-            validate: function (that) {
-                return that.fields.login.value.length === 0;
-            },
-        },
-        password_new: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.cleanErrors();
-                },
-                ["@paste"]() {
-                    this.cleanErrors();
-                },
-                [":class"]() {
-                    return this.fields.password_new.error ? "border-red-70" : "border-gray-40";
-                },
-                [":type"]() {
-                    return this.show ? "text" : "password";
-                },
-            },
-            validate: function (that) {
-                return that.fields.password_new.value.length < MIN_PASSWORD_LENGTH;
-            },
-        },
-        password_confirm: {
-            value: "",
-            error: false,
-            spread: {
-                ["@input"]() {
-                    this.cleanErrors();
-                },
-                ["@paste"]() {
-                    this.cleanErrors();
-                },
-                [":class"]() {
-                    return this.fields.password_confirm.error ? "border-red-70" : "border-gray-40";
-                },
-                [":type"]() {
-                    return this.show ? "text" : "password";
-                },
-            },
-            validate: function (that) {
-                return that.fields.password_confirm.value.length < MIN_PASSWORD_LENGTH
-                    || that.fields.password_confirm.value !== that.fields.password_new.value;
-            },
-        },
-    };
 
     return {
         show: false,
+        step: 1,
         sending: false,
-        fields: 'login_form' in document.forms ? login_form : reset_form,
+        fields: {
+            login: {
+                value: "",
+                error: false,
+                spread: {
+                    ["@input"]() {
+                        this.cleanErrors();
+                    },
+                    ["@paste"]() {
+                        this.cleanErrors();
+                    },
+                    [":class"]() {
+                        return this.fields.login.error ? "border-red-70" : "border-gray-40";
+                    },
+                },
+                validate: function (that) {
+                    return that.fields.login.value.length !== 17;
+                },
+            },
+            password: {
+                value: "",
+                error: false,
+                spread: {
+                    ["@input"]() {
+                        this.cleanErrors();
+                    },
+                    ["@paste"]() {
+                        this.cleanErrors();
+                    },
+                    [":class"]() {
+                        return this.fields.password.error ? "border-red-70" : "border-gray-40";
+                    },
+                    [":type"]() {
+                        return this.show ? "text" : "password";
+                    },
+                },
+                validate: function (that) {
+                    return that.fields.password.value.length < MIN_PASSWORD_LENGTH;
+                },
+            },
+        },
         spread: {
             ["@submit.prevent"]() {
-                this.$refs.submit_btn.focus();
+                if (this.step === 1) {
+                    this.$refs.submit_btn_1.focus();
+                } else {
+                    this.$refs.submit_btn_2.focus();
+                }
+
                 this.validate();
                 this.send();
             }
@@ -126,33 +70,35 @@ export function authForm() {
             }
         },
         validate: function () {
-            for (let field in this.fields) {
-                this.fields[field]['error'] = this.fields[field]['validate'](this);
-            }
+            let field = this.step === 1 ? 'login' : 'password';
+
+            this.fields[field]['error'] = this.fields[field]['validate'](this);
         },
         send: function () {
-            for (let field in this.fields) {
-                if (this.fields[field]['error']) return;
-            }
+            let field = this.step === 1 ? 'login' : 'password';
+
+            if (this.fields[field]['error']) return;
+
+            const login = this.fields.login.value.replace(/\D+/g,"");
+            const password = this.fields.password.value;
 
             this.sending = true;
 
-            let data = new FormData(this.$el);
+            let data = new FormData();
+            data.append('action', field);
 
             // > демо
-            console.log(this.$el.action);
+            console.log('send', field);
 
             setTimeout(() => {
-                if (this.$el.name === 'reset_form') {
+                this.sending = false;
+
+                if (this.step === 1) {
+                    this.step = 2;
+                } else if (login !== '38' + password) {
+                    this.fields.password.error = true;
+                } else {
                     document.location.assign("index.html");
-                }
-                if (this.$el.name === 'login_form') {
-                    if (this.fields.login.value !== this.fields.password.value) {
-                        this.fields.password.error = true;
-                        this.sending = false;
-                    } else {
-                        document.location.assign("index.html");
-                    }
                 }
             }, 1020);
             // < демо

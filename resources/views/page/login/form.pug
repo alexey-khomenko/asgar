@@ -1,19 +1,20 @@
-form(name="login_form", action="ajax.php", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-data="authForm()", x-spread="spread")
-    div(class="mb-4")
-        include ../../partials/pages/login
+form(name="login_form", class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto", x-spread="spread")
+    fieldset(x-show="step === 1")
+        include login
 
-    div(class="mb-5")
         -
-            password = {
-                name: 'password',
-                label: 'Пароль',
-                placeholder: 'Введите пароль',
-                desc: ''
+            submit = {
+                title: 'Получить пароль',
+                step: 1
             }
-        include ../../partials/pages/password
+        include submit
 
-    div(class="mb-12 md:mb-16 sm:mb-10")
-        include ../../page/login/forgot
+    fieldset(x-show="step === 2", x-cloak)
+        include password
 
-    - submit = 'Войти';
-    include ../../partials/pages/submit
+        -
+            submit = {
+                title: 'Войти',
+                step: 2
+            }
+        include submit

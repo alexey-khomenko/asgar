@@ -17,19 +17,26 @@
     <title>Авторизация</title>
   </head>
   <body class="antialiased">
-    <div class="fixed z-0 top-0 right-0 bottom-0 left-0 overflow-y-auto overflow-x-hidden flex flex-col justify-between bg-white">
-      <header class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3" data-c-container>
-        <div class="mt-8 md:mt-6 sm:mt-5">
-        </div>
+    <div class="fixed z-0 top-0 right-0 bottom-0 left-0 overflow-y-auto overflow-x-hidden flex flex-col justify-between bg-white" x-data="authData()">
+      <header class="mt-8 md:mt-6 sm:mt-5">
+        <div class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex justify-between" data-c-container x-show="step === 2" x-cloak><span class="inline-flex justify-start items-center text-black hover:text-purple-40 focus:text-purple-40 cursor-pointer" @click="step = 1"><span class="w-8 h-8 flex justify-center items-center">
+              <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="11" height="16" viewBox="0 0 11 16">
+                <path fill="currentColor" d="M10.5465 14.1067L4.43984 8L10.5465 1.88L8.6665 0L0.666504 8L8.6665 16L10.5465 14.1067Z"></path>
+              </svg></span><span class="text-lg sm:text-base leading-5 mx-1">Назад</span></span></div>
       </header>
       <main class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 py-1" data-c-container><img class="block object-contain h-24 md:h-48 sm:h-40 w-full mx-auto mb-5 md:mb-20 sm:mb-12" src="images/logo.png" alt="">
         <h1 class="text-center font-bold text-black text-3xl leading-9 sm:text-2xl sm:leading-7 xs:text-xl mb-10 sm:mb-8">Авторизация</h1>
-        <form class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto" name="login_form" action="ajax.php" x-data="authForm()" x-spread="spread">
-          <div class="mb-4">
-            <input class="pr-4 sm:pr-3 w-full rounded-md border text-base text-black font-normal h-12 pl-4 placeholder-black placeholder-opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" type="text" name="login" aria-label="Логин" placeholder="Введите логин" x-spread="fields.login.spread" x-model="fields.login.value">
-          </div>
-          <div class="mb-5">
-            <div class="relative">
+        <form class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto" name="login_form" x-spread="spread">
+          <fieldset x-show="step === 1">
+            <input class="mb-4 pr-4 sm:pr-3 w-full rounded-md border text-base text-black font-normal h-12 pl-4 placeholder-black placeholder-opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" type="text" name="login" aria-label="Логин" placeholder="+38(___)___-__-__" x-spread="fields.login.spread" x-model="fields.login.value">
+            <button class="flex justify-center items-center w-full bg-purple-80 hover:bg-purple-40 focus:bg-purple-40 h-12 md:h-16 sm:h-12 rounded-xl p-1" type="submit" x-show="!sending" x-ref="submit_btn_1"><span class="font-semibold text-white text-lg sm:text-base leading-5">Получить пароль</span></button>
+            <div class="flex justify-center items-center w-full h-12 md:h-16 sm:h-12" x-show="sending" x-cloak><span class="animate-spin-slow">
+                <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                  <path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path>
+                </svg></span><span class="font-normal text-base sm:text-xs leading-6 md:leading-5 sm:leading-4 ml-2">Загрузка &hellip;</span></div>
+          </fieldset>
+          <fieldset x-show="step === 2" x-cloak>
+            <div class="mb-4 relative">
               <input class="pr-10 w-full rounded-md border text-base text-black font-normal h-12 pl-4 placeholder-black placeholder-opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" name="password" aria-label="Пароль" placeholder="Введите пароль" x-spread="fields.password.spread" x-model="fields.password.value">
               <button class="absolute top-0 right-0 bottom-0 flex justify-center items-center w-8 px-1 mr-2 text-purple-80 hover:text-purple-40 focus:text-purple-40 sm:px-2" type="button" aria-label="Показать пароль" x-show="!show" @click="show = true">
                 <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="22" height="20" viewBox="0 0 576 512">
@@ -42,19 +49,17 @@
                 </svg>
               </button>
             </div>
-          </div>
-          <div class="mb-12 md:mb-16 sm:mb-10">
-            <div class="flex justify-center items-center"><a class="font-normal text-base sm:text-xs leading-6 md:leading-5 sm:leading-4 text-purple-80 hover:text-purple-40 focus:text-purple-40" href="reset.html">Забыл пароль</a></div>
-          </div>
-          <button class="flex justify-center items-center w-full bg-purple-80 hover:bg-purple-40 focus:bg-purple-40 h-12 md:h-16 sm:h-12 rounded-xl p-1" type="submit" x-show="!sending" x-ref="submit_btn"><span class="font-semibold text-white text-lg sm:text-base leading-5">Войти</span></button>
-          <div class="flex justify-center items-center w-full h-12 md:h-16 sm:h-12" x-show="sending" x-cloak><span class="animate-spin-slow">
-              <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
-                <path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path>
-              </svg></span><span class="font-normal text-base sm:text-xs leading-6 md:leading-5 sm:leading-4 ml-2">Загрузка &hellip;</span></div>
+            <button class="flex justify-center items-center w-full bg-purple-80 hover:bg-purple-40 focus:bg-purple-40 h-12 md:h-16 sm:h-12 rounded-xl p-1" type="submit" x-show="!sending" x-ref="submit_btn_2"><span class="font-semibold text-white text-lg sm:text-base leading-5">Войти</span></button>
+            <div class="flex justify-center items-center w-full h-12 md:h-16 sm:h-12" x-show="sending" x-cloak><span class="animate-spin-slow">
+                <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">
+                  <path fill="currentColor" d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"></path>
+                </svg></span><span class="font-normal text-base sm:text-xs leading-6 md:leading-5 sm:leading-4 ml-2">Загрузка &hellip;</span></div>
+          </fieldset>
         </form>
       </main>
-      <footer class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3" data-c-container>
-        <div class="mb-8 md:mb-6 sm:mb-5">
+      <footer class="mb-8 md:mb-6 sm:mb-5">
+        <div class="w-full mx-auto px-5 md:px-6 sm:px-5 xs:px-3 flex justify-between" data-c-container x-show="step === 2" x-cloak>
+          <div class="h-8"></div>
         </div>
       </footer>
     </div>

@@ -18,7 +18,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "alpinejs": "^2.8.0"
+    "alpinejs": "^2.8.0",
+    "imask": "^6.0.7"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",

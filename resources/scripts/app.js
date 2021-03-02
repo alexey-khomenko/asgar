@@ -1,4 +1,5 @@
 import 'alpinejs';
+import IMask from 'imask';
 
 import {maxHeightData} from './scripts';
 window.maxHeightData = maxHeightData;
@@ -6,5 +7,5 @@ window.maxHeightData = maxHeightData;
 import {contactData} from './contacts';
 window.contactData = contactData;
 
-import {authForm} from './auth';
-window.authForm = authForm;
+import {authData} from './auth';
+window.authData = authData;
