@@ -75,9 +75,9 @@ export function authData() {
             this.fields[field]['error'] = this.fields[field]['validate'](this);
         },
         send: async function () {
-            let field = this.step === 1 ? 'login' : 'password';
+            let action = this.step === 1 ? 'login' : 'password';
 
-            if (this.fields[field]['error']) return;
+            if (this.fields[action]['error']) return;
 
             const login = this.fields.login.value.replace(/\D+/g,"");
             const password = this.fields.password.value;
@@ -85,7 +85,7 @@ export function authData() {
             const fields = this.step === 1 ? {login: login} : {login: login, password: password};
 
             let data = new FormData();
-            data.append('action', field);
+            data.append('action', action);
             data.append('fields', JSON.stringify(fields));
 
             this.sending = true;
@@ -95,14 +95,17 @@ export function authData() {
             if (response.status === 200) {
                 const res = await response.json();
 
-                if (Object.keys(res).length) {
+                console.log(res);
+
+                if ('error' in res) {
                     if (this.step === 1) {
                         this.fields.login.error = true;
+                    } else if ('back' in res) {
+                        this.fields.password.value = "";
+                        this.step = 1;
                     } else {
                         this.fields.password.error = true;
                     }
-
-                    console.log(res);
                 } else if (this.step === 1) {
                     this.step = 2;
                 } else {
