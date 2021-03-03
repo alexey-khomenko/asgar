@@ -5,7 +5,8 @@ export function authData() {
         mask: '+{38}(000)000-00-00'
     });
 
-    const MIN_PASSWORD_LENGTH = 8;
+    const PASSWORD_LENGTH = 8;
+    const LOGIN_LENGTH = 17;
 
     return {
         show: false,
@@ -27,7 +28,7 @@ export function authData() {
                     },
                 },
                 validate: function (that) {
-                    return that.fields.login.value.length !== 17;
+                    return that.fields.login.value.length !== LOGIN_LENGTH;
                 },
             },
             password: {
@@ -48,7 +49,7 @@ export function authData() {
                     },
                 },
                 validate: function (that) {
-                    return that.fields.password.value.length < MIN_PASSWORD_LENGTH;
+                    return that.fields.password.value.length !== PASSWORD_LENGTH;
                 },
             },
         },
