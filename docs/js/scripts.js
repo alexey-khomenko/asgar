@@ -1998,7 +1998,8 @@ function authData() {
   IMask(document.querySelector("[name=login]"), {
     mask: '+{38}(000)000-00-00'
   });
-  var MIN_PASSWORD_LENGTH = 8;
+  var PASSWORD_LENGTH = 8;
+  var LOGIN_LENGTH = 17;
   return {
     show: false,
     step: 1,
@@ -2015,7 +2016,7 @@ function authData() {
           return this.fields.login.error ? "border-red-70" : "border-gray-40";
         }), _spread),
         validate: function validate(that) {
-          return that.fields.login.value.length !== 17;
+          return that.fields.login.value.length !== LOGIN_LENGTH;
         }
       },
       password: {
@@ -2031,7 +2032,7 @@ function authData() {
           return this.show ? "text" : "password";
         }), _spread2),
         validate: function validate(that) {
-          return that.fields.password.value.length < MIN_PASSWORD_LENGTH;
+          return that.fields.password.value.length !== PASSWORD_LENGTH;
         }
       }
     },
@@ -2071,7 +2072,7 @@ function authData() {
 
         if (_this.step === 1) {
           _this.step = 2;
-        } else if (login !== '38' + password) {
+        } else if (password !== '12345678') {
           _this.fields.password.error = true;
         } else {
           document.location.assign("index.html");
