@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "alpinejs": "^2.8.0",
-    "imask": "^6.0.7"
+    "inputmask": "^5.0.5"
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",

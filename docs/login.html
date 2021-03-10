@@ -28,7 +28,7 @@
         <h1 class="text-center font-bold text-black text-3xl leading-9 sm:text-2xl sm:leading-7 xs:text-xl mb-10 sm:mb-8">Авторизация</h1>
         <form class="max-w-xs md:max-w-full px-3 md:px-0 mx-auto" name="login_form" x-spread="spread">
           <fieldset x-show="step === 1">
-            <input class="mb-4 pr-4 sm:pr-3 w-full rounded-md border text-base text-black font-normal h-12 pl-4 placeholder-black placeholder-opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" type="text" name="login" aria-label="Логин" placeholder="+38(___)___-__-__" x-spread="fields.login.spread" x-model="fields.login.value">
+            <input class="mb-4 pr-4 sm:pr-3 w-full rounded-md border text-base text-black font-normal h-12 pl-4 placeholder-black placeholder-opacity-100 focus:border-purple-40 md:h-16 sm:text-xs sm:h-12 sm:pl-3" type="tel" name="login" aria-label="Логин" placeholder="+380(__)___-__-__" x-spread="fields.login.spread" x-model="fields.login.value">
             <button class="flex justify-center items-center w-full bg-purple-80 hover:bg-purple-40 focus:bg-purple-40 h-12 md:h-16 sm:h-12 rounded-xl p-1" type="submit" x-show="!sending" x-ref="submit_btn_1"><span class="font-semibold text-white text-lg sm:text-base leading-5">Получить пароль</span></button>
             <div class="flex justify-center items-center w-full h-12 md:h-16 sm:h-12" x-show="sending" x-cloak><span class="animate-spin-slow">
                 <svg class="max-w-full max-h-full" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512">

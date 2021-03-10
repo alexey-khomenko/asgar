@@ -1,7 +1,7 @@
 import 'alpinejs';
-import IMask from 'imask';
+import './misc';
 
-import {maxHeightData} from './scripts';
+import {maxHeightData} from './spoilers';
 window.maxHeightData = maxHeightData;
 
 import {contactData} from './contacts';
