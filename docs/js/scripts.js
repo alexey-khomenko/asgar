@@ -2001,7 +2001,7 @@ function authData() {
 
   inputmask__WEBPACK_IMPORTED_MODULE_0___default()('+380(99)999-99-99').mask(document.querySelector("[name=login]"));
   var PASSWORD_LENGTH = 8;
-  var LOGIN_LENGTH = 17;
+  var LOGIN_LENGTH = 12;
   return {
     show: false,
     step: 1,
@@ -2018,7 +2018,7 @@ function authData() {
           return this.fields.login.error ? "border-red-70" : "border-gray-40";
         }), _spread),
         validate: function validate(that) {
-          return that.fields.login.value.length !== LOGIN_LENGTH;
+          return that.fields.login.value.replace(/\D+/g, "").length !== LOGIN_LENGTH;
         }
       },
       password: {
