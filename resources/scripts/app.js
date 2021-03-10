@@ -1,8 +1,7 @@
 import 'alpinejs';
-import IMask from 'imask';
-// todo https://github.com/RobinHerbots/Inputmask/tree/5.x/dist
+import './misc';
 
-import {maxHeightData} from './scripts';
+import {maxHeightData} from './spoilers';
 window.maxHeightData = maxHeightData;
 
 import {contactData} from './contacts';

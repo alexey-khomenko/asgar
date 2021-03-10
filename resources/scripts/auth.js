@@ -1,9 +1,8 @@
+import Inputmask from 'inputmask';
 //----------------------------------------------------------------------------------------------------------------------
-// универсальная форма
+// форма входа
 export function authData() {
-    IMask(document.querySelector("[name=login]"), {
-        mask: '+{38}(000)000-00-00'
-    });
+    Inputmask('+380(99)999-99-99').mask(document.querySelector("[name=login]"));
 
     const PASSWORD_LENGTH = 8;
     const LOGIN_LENGTH = 17;
