@@ -5,7 +5,7 @@ export function authData() {
     Inputmask('+380(99)999-99-99').mask(document.querySelector("[name=login]"));
 
     const PASSWORD_LENGTH = 8;
-    const LOGIN_LENGTH = 17;
+    const LOGIN_LENGTH = 12;
 
     return {
         show: false,
@@ -27,7 +27,7 @@ export function authData() {
                     },
                 },
                 validate: function (that) {
-                    return that.fields.login.value.length !== LOGIN_LENGTH;
+                    return that.fields.login.value.replace(/\D+/g,"").length !== LOGIN_LENGTH;
                 },
             },
             password: {
