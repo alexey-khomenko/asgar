@@ -1,5 +1,6 @@
 import 'alpinejs';
 import IMask from 'imask';
+// todo https://github.com/RobinHerbots/Inputmask/tree/5.x/dist
 
 import {maxHeightData} from './scripts';
 window.maxHeightData = maxHeightData;
