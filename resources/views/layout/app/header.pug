@@ -121,7 +121,7 @@ header(x-data="{show: false}")
     div(class="bg-purple-80 hidden md:block px-6 sm:px-5 xs:px-3")
         div(class="flex justify-between items-center h-24 sm:h-16 py-2")
             - cls = 'flex justify-center items-center p-1 h-8 sm:h-6 w-8 sm:w-6 text-white hover:text-purple-20 focus:text-purple-20'
-            button(type="button", class=cls, @click.stop="show = true")
+            button(type="button", class=cls, @click.stop="show = true", aria-label="menu")
                 - svg = {width: 25, height: 16, name: 'hamburger'}
                 include ../../partials/pages/svg
             case page.menu.mode
