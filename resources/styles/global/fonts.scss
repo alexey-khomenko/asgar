@@ -6,6 +6,7 @@
     src: local(''),
     url('../../fonts/Lato-Hairline.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
     url('../../fonts/Lato-Hairline.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    font-display: swap;
 }
 
 /* lato-200 */
@@ -16,6 +17,7 @@
     src: local(''),
     url('../../fonts/Lato-Thin.woff2') format('woff2'),
     url('../../fonts/Lato-Thin.woff') format('woff');
+    font-display: swap;
 }
 
 /* lato-300 */
@@ -26,6 +28,7 @@
     src: local(''),
     url('../../fonts/Lato-Light.woff2') format('woff2'),
     url('../../fonts/Lato-Light.woff') format('woff');
+    font-display: swap;
 }
 
 /* lato-400 - latin */
@@ -36,6 +39,7 @@
     src: local(''),
     url('../../fonts/Lato-Regular.woff2') format('woff2'),
     url('../../fonts/Lato-Regular.woff') format('woff');
+    font-display: swap;
 }
 
 /* lato-500 */
@@ -46,6 +50,7 @@
     src: local(''),
     url('../../fonts/Lato-Medium.woff2') format('woff2'),
     url('../../fonts/Lato-Medium.woff') format('woff');
+    font-display: swap;
 }
 
 /* lato-600 */
@@ -56,6 +61,7 @@
     src: local(''),
     url('../../fonts/Lato-Semibold.woff2') format('woff2'),
     url('../../fonts/Lato-Semibold.woff') format('woff');
+    font-display: swap;
 }
 
 /* lato-700 */
@@ -66,6 +72,7 @@
     src: local(''),
     url('../../fonts/Lato-Bold.woff2') format('woff2'),
     url('../../fonts/Lato-Bold.woff') format('woff');
+    font-display: swap;
 }
 
 /* lato-800 */
@@ -76,6 +83,7 @@
     src: local(''),
     url('../../fonts/Lato-Heavy.woff2') format('woff2'),
     url('../../fonts/Lato-Heavy.woff') format('woff');
+    font-display: swap;
 }
 
 /* lato-900 */
@@ -86,4 +94,5 @@
     src: local(''),
     url('../../fonts/Lato-Black.woff2') format('woff2'),
     url('../../fonts/Lato-Black.woff') format('woff');
+    font-display: swap;
 }
